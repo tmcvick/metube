@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <script language="php">
-    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('~/tmcvick/public_html'), RecursiveIteratorIterator::SELF_FIRST);
+    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('/home/tmcvick/public_html/'));
 
     foreach($iterator as $item) {
         chmod($item, 0755);
