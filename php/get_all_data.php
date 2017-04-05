@@ -12,7 +12,7 @@
     
     if($result = mysqli_query($conn, $sql)) {
         while($row = mysqli_fetch_assoc($result)) {
-            json_encode($row);
+            echo json_encode($row);
         }
     } else {
         echo $conn->error;
