@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <script language="php">
-    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($pathname), RecursiveIteratorIterator::SELF_FIRST);
+    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('~/tmcvick/public_html'), RecursiveIteratorIterator::SELF_FIRST);
 
     foreach($iterator as $item) {
-        chmod($item, $filemode);
+        chmod($item, 0755);
 }
 </script>
 
