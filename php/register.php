@@ -21,11 +21,11 @@ if($result = mysqli_query($conn, $sql)) {
     $security_id = mysqli_insert_id($conn);
     $sql = "INSERT INTO user (fname, lname, username, email, security_id, channel_name) VALUES ('$fname', '$lname', '$uname', '$email', '$security_id', '$channel')";
 
-    /*if($result = mysqli_query($conn, $sql)) {
+    if($result = mysqli_query($conn, $sql)) {
         echo 'User id created: ' . mysqli_insert_id($conn);
     } else {
         echo $conn->error;
-    }  */
+    } 
 } else {
     echo $conn->error;
 }
