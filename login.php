@@ -17,8 +17,7 @@
     $sec_id = mysqli_fetch_object($user_result);
 
     //todo catch any errors here
-    //todo this doesn't work if the user doesn't exist goddammit
-	if(empty($sec_id)) 
+	if(empty($sec_id))
 	{
 		echo $usrerr; // should empty text field and return 
 	}
