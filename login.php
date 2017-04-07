@@ -14,14 +14,16 @@
 	
 	$ver_user = "SELECT security_id FROM user WHERE username = '$user' ";
 	$user_result = mysqli_query($conn,$ver_user);
-		
-	if(empty($user_result)) 
+    $sec_id = mysqli_fetch_object($user_result);
+
+    //todo catch any errors here
+    //todo this doesn't work if the user doesn't exist goddammit
+	if(empty($sec_id)) 
 	{
 		echo $usrerr; // should empty text field and return 
 	}
 	else
 	{
-		$sec_id = mysqli_fetch_object($user_result);
 		//echo $sec_id->security_id;
 
 		$ver_pass = "SELECT password FROM user_security WHERE security_id = '$sec_id->security_id' ";
