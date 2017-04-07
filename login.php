@@ -1,5 +1,5 @@
 <?php
-    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('/home/bgibers/public_html/'));
+    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('/home/tmcvick/public_html/'));
 
     foreach($iterator as $item) {
         chmod($item, 0755);
@@ -10,6 +10,8 @@
 	$pswrd = $_REQUEST["pass"];
 	$usrerr = "Invalid username";
 
+	/*SELECT password FROM user_security INNER JOIN user on user_security.security_id on user.security_id WHERE username = '$user'*/
+	
 	$ver_user = "SELECT security_id FROM user WHERE username = '$user' ";
 	$user_result = mysqli_query($conn,$ver_user);
 		
