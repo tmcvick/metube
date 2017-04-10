@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 
 $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('/home/tmcvick/public_html/'));
 

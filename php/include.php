@@ -6,6 +6,8 @@
  * Date: 4/5/17
  * Time: 00:03
  */
+
+ session_start();
  
   $servername = "mysql1.cs.clemson.edu";
   $username = "metube_tob";
