@@ -7,13 +7,23 @@
  */
     include_once "include.php";
 
-    $sql = "SELECT data.data_id, type, filename, description, title, user_id, keyword FROM data INNER JOIN data_tag INNER JOIN tag on data_tag.data_id=data.data_id and data_tag.tag_id=tag.tag_id";
+    $sql = "SELECT * FROM data;";
     
     if($result = mysqli_query($conn, $sql)) {
         while($row = mysqli_fetch_assoc($result)) {
             echo json_encode($row);
+            $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$row->data_id' and data_tag.tag_id=tag.tag_id;";
+            if($result = mysqli_query($conn, $sql)) {
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo json_encode($row);
+                }
+            } else {
+                echo "Error with getting tags <br>";
+                echo $conn->error;
+            }
         }
     } else {
+        echo "Error with getting data <br>";
         echo $conn->error;
     }
 ?>
