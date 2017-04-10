@@ -27,7 +27,7 @@ if($result = mysqli_query($conn, $sql)) {
     $tag_array = explode(',', $taglist);
     foreach($tag_array as $tag) {
         $sql = "SELECT tag_id FROM tag WHERE keyword = '$tag'";
-        echo $tag;
+        echo $tag . '<br>';
         $tgint = null;
         if($result = mysqli_query($conn,$sql)) {
 
@@ -42,12 +42,11 @@ if($result = mysqli_query($conn, $sql)) {
             }
             //the tag already exists
             else {
-                echo "Found tag";
                 $tgint = mysqli_fetch_object($result)->tag_id;
             }
         }
         else {
-            echo "Error with selecting from tag";
+            echo "Error with selecting from tag <br>";
             echo $conn->error;
         }
 
@@ -58,13 +57,13 @@ if($result = mysqli_query($conn, $sql)) {
             echo 'New tag linked: ' . $lastID . '<br>';
         }
         else {
-            echo "Error with inserting into data_tag table";
+            echo "Error with inserting into data_tag table <br>";
             echo $conn->error;
         }
     }
 
 } else {
-    echo "Error inserting into data table";
+    echo "Error inserting into data table <br>";
     echo $conn->error;
 }
 
