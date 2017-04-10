@@ -6,7 +6,6 @@
  * Time: 7:40 PM
  */
 
-
 include_once "include.php";
 $flname = $_REQUEST['flname'];
 $dtype = $_REQUEST['dtype'];
@@ -17,7 +16,7 @@ $taglist = $_REQUEST['taglist'];
 $u_id  = $_SESSION['glbl_user']->user_id;
 
 /* Insert data */
-$sql = "INSERT INTO data (type,filename,description,title,user_id) VALUES ('$dtype', '$flname''$desc','$title','$u_id')";
+$sql = "INSERT INTO data (type,filename,description,title,user_id) VALUES ('$dtype', '$flname', '$desc','$title','$u_id')";
 
 if($result = mysqli_query($conn, $sql)) {
     $lastdtID = mysqli_insert_id($conn);
@@ -43,10 +42,12 @@ if($result = mysqli_query($conn, $sql)) {
             }
             //the tag already exists
             else {
+                echo "Found tag";
                 $tgint = mysqli_fetch_object($result)->tag_id;
             }
         }
         else {
+            echo "Error with selecting from tag";
             echo $conn->error;
         }
 
@@ -57,11 +58,13 @@ if($result = mysqli_query($conn, $sql)) {
             echo 'New tag linked: ' . $lastID . '<br>';
         }
         else {
+            echo "Error with inserting into data_tag table";
             echo $conn->error;
         }
     }
 
 } else {
+    echo "Error inserting into data table";
     echo $conn->error;
 }
 
