@@ -8,7 +8,7 @@
 
 include_once "include.php";
 
-$data_id  = $_REQUEST['data_id'];
+$data_id  = $_REQUEST['data_id']; //todo this should be current data
 $pl_id = $_REQUEST['pl_id'];
 
 $sql = "INSERT INTO playlist_data (data_id,playlist_id) VALUES ('$data_id','$pl_id')";

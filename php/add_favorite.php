@@ -9,7 +9,7 @@
 include_once "include.php";
 
 $user_id  = $_SESSION['glbl_user']->user_id;
-$data_id = $_REQUEST['data_id'];
+$data_id = $_REQUEST['data_id']; //todo this should be current data
 
 $sql = "INSERT INTO user_favorite (user_id,data_id) VALUES ('$user_id','$data_id')";
 
