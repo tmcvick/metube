@@ -19,7 +19,9 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $sql = "SELECT * FROM data WHERE playlist_data.playlist_id = (SELECT playlist_id FROM playlist_data WHERE playlist_data.data_id='$data_id')";
 
     if ($resultData = mysqli_query($conn, $sql)) {
+        echo "here";
         while ($rowData = mysqli_fetch_assoc($resultData)) {
+            echo "here";
             echo json_encode($rowData);
             $new_data_id = $rowData['data_id'];
             $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$new_data_id' and data_tag.tag_id=tag.tag_id;";
