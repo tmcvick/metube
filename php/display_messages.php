@@ -17,8 +17,8 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     $user = $_SESSION['glbl_user']->user_id;
 
-    $sql = "SELECT Message.*, user.username FROM Message INNER JOIN conversation on Message.conversation_id = conversation.conversation_id INNER JOIN user on conversation.to = user.user_id and conversation.from = user.user_id
-        WHERE conversation.to=$user or conversation.from=$user GROUP BY conversation.conversation_id ORDER BY Message.read_ind, Message.timestamp DESC";
+    $sql = "SELECT Message.*, toUser.username, fromUser.username FROM Message INNER JOIN conversation on Message.conversation_id = conversation.conversation_id INNER JOIN user fromUser on conversation.`from` = fromUser.user_id INNER JOIN user toUser on conversation.`to` = toUser.user_id
+WHERE conversation.to=$user or conversation.from=$user ORDER BY conversation.conversation_id, Message.read_ind, Message.timestamp DESC";
 
     if ($result = mysqli_query($conn, $sql)) {
         if ($result->num_rows == 0) {
