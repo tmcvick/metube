@@ -7,7 +7,8 @@
  */
 include_once "include.php";
 if(isset($_SESSION['glbl_user'])) {
-    echo 'user set: ' . $_SESSION['glbl_user'];
+    echo "user set: ";
+    echo  $_SESSION['glbl_user'];
 } else {
     echo 'User not set';
 }
