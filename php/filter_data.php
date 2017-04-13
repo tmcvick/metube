@@ -16,7 +16,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 } else {
 
     $query = $_SERVER['QUERY_STRING'];
-    $query = mysqli_real_escape_string($conn, $query);
+    $query = str_replace("%27", "'", $query);
     echo $query;
     $sql = "SELECT * FROM data WHERE $query";
     if ($resultData = mysqli_query($conn, $sql)) {
