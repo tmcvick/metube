@@ -22,7 +22,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $created = date("Y-m-d H:i:s");
     $read = 0;
 
-    $sql = "INSERT INTO conversation (to, from) VALUES ('$to', '$from')";
+    $sql = "INSERT INTO conversation VALUES ('$to', '$from')";
     if ($result = mysqli_query($conn, $sql)) {
         $convo_id = mysqli_insert_id($conn);
         echo 'Conversation created: ' . $convo_id . '<br>';
