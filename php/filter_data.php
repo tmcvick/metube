@@ -18,7 +18,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $query = $_SERVER['QUERY_STRING'];
     $query = str_replace("%27", "'", $query);
     $query = str_replace("%26", "&", $query);
-
+    echo $query;
     $sql = "SELECT * FROM data WHERE $query";
     if ($resultData = mysqli_query($conn, $sql)) {
         //echo json_encode($resultData);
