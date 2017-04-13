@@ -17,9 +17,11 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 } else {
 
     $data_id = $_REQUEST['data_id'];
+    $pl_id = $_REQUEST['pl_id'];
 
 
-    $sql = "DELETE FROM playlist_data WHERE data_id = '$data_id'";
+
+    $sql = "DELETE FROM playlist_data WHERE data_id = '$data_id' AND playlist_id= '$pl_id'";
 
     if ($result = mysqli_query($conn, $sql)) {
         echo 'Data unlinked: ' . '<br>';
