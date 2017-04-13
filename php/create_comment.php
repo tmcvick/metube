@@ -7,18 +7,25 @@
  */
 
 include_once "include.php";
-
-$comment = $_REQUEST['comment'];
-$user_id  = $_SESSION['glbl_user']->user_id;
-$data_id = $_REQUEST['data_id']; //todo change this to current data
-
-
-$sql = "INSERT INTO comment (content,user_id,data_id) VALUES ('$comment','$user_id','$data_id')";
-
-if($result = mysqli_query($conn, $sql)) {
-    $comment_id = mysqli_insert_id($conn);
-    echo 'Comment created: ' . $comment_id . '<br>';
+if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
+    echo '<script language="javascript">';
+    echo 'alert("User not logged in!")';
+    echo '</script>';
+    header("Location: ../login.php"); /* Redirect browser */
+    exit();
 } else {
-    echo $conn->error;
+
+    $comment = $_REQUEST['comment'];
+    $user_id = $_SESSION['glbl_user']->user_id;
+    $data_id = $_REQUEST['data_id'];
+
+    $sql = "INSERT INTO comment (content,user_id,data_id) VALUES ('$comment','$user_id','$data_id')";
+
+    if ($result = mysqli_query($conn, $sql)) {
+        $comment_id = mysqli_insert_id($conn);
+        echo 'Comment created: ' . $comment_id . '<br>';
+    } else {
+        echo $conn->error;
+    }
 }
 ?>

@@ -1,11 +1,10 @@
 <?php
 /**
  * Created by IntelliJ IDEA.
- * User: BrendanGiberson
- * Date: 4/10/17
- * Time: 2:26 PM
+ * User: timmcvicker
+ * Date: 4/13/17
+ * Time: 09:37
  */
-
 include_once "include.php";
 
 if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
@@ -16,18 +15,16 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     exit();
 } else {
 
-    $data_id = $_REQUEST["data_id"]; //todo set to current data
+    $query = $_REQUEST['keyword'];
 
-    $sql = "SELECT comment.*, user.username FROM comment INNER JOIN user on comment.user_id = user.user_id WHERE comment.data_id = '$data_id';";
+    $sql = "SELECT * FROM data INNER JOIN tag on data_tag.data_id = data.data_id and data_tag.tag_id = tag.tag_id WHERE tag.keyword='$query'";
 
     if ($resultData = mysqli_query($conn, $sql)) {
         while ($rowData = mysqli_fetch_assoc($resultData)) {
             echo json_encode($rowData);
-            echo '<br>';
         }
     } else {
-        echo "Error with getting comments <br>";
+        echo "Error with getting data <br>";
         echo $conn->error;
     }
 }
-?>

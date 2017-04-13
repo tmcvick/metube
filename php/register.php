@@ -25,7 +25,7 @@ if($result = mysqli_query($conn, $sql)) {
         echo 'User id created: ' . mysqli_insert_id($conn);
     } else {
         echo $conn->error;
-    } 
+    }
 } else {
     echo $conn->error;
 }

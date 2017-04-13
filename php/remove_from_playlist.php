@@ -8,14 +8,23 @@
 
 include_once "include.php";
 
-$data_id  = $_REQUEST['data_id'];
-
-
-$sql = "DELETE FROM playlist_data WHERE data_id = '$data_id'";
-
-if($result = mysqli_query($conn, $sql)) {
-    echo 'Data unlinked: ' . '<br>';
+if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
+    echo '<script language="javascript">';
+    echo 'alert("User not logged in!")';
+    echo '</script>';
+    header("Location: ../login.php"); /* Redirect browser */
+    exit();
 } else {
-    echo $conn->error;
+
+    $data_id = $_REQUEST['data_id'];
+
+
+    $sql = "DELETE FROM playlist_data WHERE data_id = '$data_id'";
+
+    if ($result = mysqli_query($conn, $sql)) {
+        echo 'Data unlinked: ' . '<br>';
+    } else {
+        echo $conn->error;
+    }
 }
 ?>
