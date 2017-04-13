@@ -5,8 +5,9 @@
  * Date: 4/13/17
  * Time: 10:01
  */
-session_unset();
-unset($_SESSION['glbl_user']);
+session_start();
+unset($_SESSION);
 session_destroy();
+session_write_close();
 header("Location: ../login.php"); /* Redirect browser */
 exit();
