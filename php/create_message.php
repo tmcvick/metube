@@ -15,8 +15,8 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     exit();
 } else {
 
-    $to = $_SESSION['glbl_user']->user_id;
-    $from = $_REQUEST['from'];
+    $from = $_SESSION['glbl_user']->user_id;
+    $to = $_REQUEST['to'];
     $subj = $_REQUEST['subj'];
     $msg = $_REQUEST['msg'];
     $created = date("Y-m-d H:i:s");
