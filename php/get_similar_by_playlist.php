@@ -16,7 +16,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     $data_id = $_REQUEST['data_id'];
 
-    $sql = "SELECT * FROM data INNER JOIN playlist_data on playlist_data.data_id = data.data_id WHERE playlist_data.playlist_id IN (SELECT playlist_id FROM playlist_data WHERE playlist_data.data_id='$data_id') AND NOT playlist_data.playlist_id = '$data_id'";
+    $sql = "SELECT * FROM data INNER JOIN playlist_data on playlist_data.data_id = data.data_id WHERE playlist_data.playlist_id IN (SELECT playlist_id FROM playlist_data WHERE playlist_data.data_id='$data_id') AND NOT data.data_id = '$data_id'";
 
     if ($resultData = mysqli_query($conn, $sql)) {
         while ($rowData = mysqli_fetch_assoc($resultData)) {
