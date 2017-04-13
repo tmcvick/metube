@@ -16,7 +16,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 } else {
 
     $query = $_SERVER['QUERY_STRING'];
-
+    echo $query;
     $sql = "SELECT * FROM data WHERE $query";
     if ($resultData = mysqli_query($conn, $sql)) {
         //echo json_encode($resultData);
