@@ -28,7 +28,7 @@ ORDER BY Message.timestamp DESC";
             $read_ind = $rowData['read_ind'];
             $id = $rowData['message_id'];
             if ($read_ind == 0) {
-                $sql = "UPDATE Message SET read_ind='$read_ind' WHERE message_id = '$id'";
+                $sql = "UPDATE Message SET read_ind='1' WHERE message_id = '$id'";
                 if ($result = mysqli_query($conn, $sql)) {
                     echo 'message set to read';
                 } else {
