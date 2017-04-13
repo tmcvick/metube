@@ -17,9 +17,10 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     $query = $_SERVER['QUERY_STRING'];
 
-    $sql = 'SELECT * FROM DATA WHERE $query';
+    $sql = 'SELECT * FROM data WHERE $query';
 
     if ($resultData = mysqli_query($conn, $sql)) {
+        //echo json_encode($resultData);
         while ($rowData = mysqli_fetch_assoc($resultData)) {
             echo json_encode($rowData);
             $data_id = $rowData['data_id'];
