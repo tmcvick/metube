@@ -17,9 +17,9 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     $thread_id = $_REQUEST['thread'];
 
-    $sql = "SELECT *, user.username FROM Message INNER JOIN conversation on Message.conversation_id=conversation.conversation_id 
-        INNER JOIN user on conversation.to=user.user_id and conversation.from=user.user_id WHERE Message.conversation_id ='$thread' 
-        ORDER BY Message.timestamp DESC";
+    $sql = "SELECT Message.*, toUser.username as toUser, fromUser.username as fromUser FROM Message INNER JOIN conversation on Message.conversation_id=conversation.conversation_id
+  INNER JOIN user toUser on conversation.to=toUser.user_id INNER JOIN user fromUser on conversation.from=fromUser.user_id WHERE Message.conversation_id ='$thread_id'
+ORDER BY Message.timestamp DESC";
 
 
     if ($resultData = mysqli_query($conn, $sql)) {
