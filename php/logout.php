@@ -9,5 +9,5 @@ session_start();
 unset($_SESSION);
 session_destroy();
 session_write_close();
-header("Location: ../login.php"); /* Redirect browser */
+header("Location: ../html/login.php"); /* Redirect browser */
 exit();
