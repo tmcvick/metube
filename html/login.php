@@ -4,6 +4,7 @@ $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('/home/
 foreach($iterator as $item) {
     chmod($item, 0755);
 }
+session_start();
 if (isset($_SESSION['glbl_user']))    {
     header("Location: ./channel.html"); /* Redirect browser */
     exit();
