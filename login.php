@@ -13,6 +13,11 @@ if(!isset($_REQUEST["user"]) || !isset($_REQUEST['pass'])) {
 
     /*SELECT password FROM user_security INNER JOIN user on user_security.security_id on user.security_id WHERE username = '$user'*/
 
+    if (isset($_SESSION['glbl_user']) && $_SESSION['glbl_user']->username == $user)    {
+        header("Location: ./html/channel.html"); /* Redirect browser */
+        exit();
+    }
+
     $ver_user = "SELECT security_id FROM user WHERE username = '$user' ";
     $user_result = mysqli_query($conn, $ver_user);
     $sec_id = mysqli_fetch_object($user_result);
@@ -28,18 +33,14 @@ if(!isset($_REQUEST["user"]) || !isset($_REQUEST['pass'])) {
         $usr_pass = mysqli_fetch_object($pass_result);
 
         if ($usr_pass->password == $pswrd) {
-            echo 'Success!';
             $gt_ID = "SELECT * FROM user WHERE security_id = '$sec_id->security_id' ";//set session user
             $id_result = mysqli_query($conn, $gt_ID);
             $_SESSION["glbl_user"] = mysqli_fetch_object($id_result);
+            header("Location: ./html/channel.html"); /* Redirect browser */
+            exit();
         } else {
             echo 'Login failed';
         }
-
-        echo '<br> Test, UserID : <br>';
-        echo $_SESSION["glbl_user"]->user_id;
     }
-
-//todo session_destroy() when logging out
 }
 ?>
