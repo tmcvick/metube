@@ -1,3 +1,10 @@
+<?php
+$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('/home/tmcvick/public_html/'));
+
+foreach($iterator as $item) {
+    chmod($item, 0755);
+}
+?>
 <!DOCTYPE html>
 <!--  This site was created in Webflow. http://www.webflow.com -->
 <!--  Last Published: Mon Apr 17 2017 01:36:56 GMT+0000 (UTC)  -->

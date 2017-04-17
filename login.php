@@ -2,11 +2,6 @@
 
 //session_start();
 
-$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('/home/tmcvick/public_html/'));
-
-foreach($iterator as $item) {
-    chmod($item, 0755);
-}
 include_once "php/include.php";
 
 if(!isset($_REQUEST["user"]) || !isset($_REQUEST['pass'])) {
