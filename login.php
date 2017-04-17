@@ -13,10 +13,6 @@ if(!isset($_REQUEST["user"]) || !isset($_REQUEST['pass'])) {
 
     /*SELECT password FROM user_security INNER JOIN user on user_security.security_id on user.security_id WHERE username = '$user'*/
 
-    if (isset($_SESSION['glbl_user']) && $_SESSION['glbl_user']->username == $user)    {
-        header("Location: ./html/channel.html"); /* Redirect browser */
-        exit();
-    }
 
     $ver_user = "SELECT security_id FROM user WHERE username = '$user' ";
     $user_result = mysqli_query($conn, $ver_user);
