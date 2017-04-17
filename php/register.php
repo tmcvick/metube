@@ -27,6 +27,7 @@ if ($pword != $pword2) {
         $sql = "INSERT INTO user (fname, lname, username, email, security_id, channel_name) VALUES ('$fname', '$lname', '$uname', '$email', '$security_id', '$channel')";
 
         if ($result = mysqli_query($conn, $sql)) {
+            echo "Success registering!";
             echo 'User id created: ' . mysqli_insert_id($conn);
         } else {
             echo $conn->error;
