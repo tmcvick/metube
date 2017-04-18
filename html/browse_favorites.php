@@ -49,7 +49,8 @@
             </div>
             <div class="w-icon-dropdown-toggle"></div>
         </div>
-        <nav class="w-dropdown-list"><a class="dropdown-link w-dropdown-link" href=""><strong>All Media</strong></a>
+        <nav class="w-dropdown-list">
+            <a class="w-dropdown-link" href="my_channel.php"><strong>All Media</strong></a>
             <?php
             include_once "../php/include.php";
             echo '<a class="w-dropdown-link" href="browse_videos.php?user_id=' . $_SESSION["glbl_user"]->user_id . '"><strong>Videos</strong></a>';
