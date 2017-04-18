@@ -132,7 +132,7 @@ echo '</div>
 ?>
 
 <div class="div-block-12"></div>
-<div class="div-block-10"><a class="button-3 w-button" href="update-profile.html">Update Profile</a>
+<div class="div-block-10"><a class="button-3 w-button" href="update_profile.php">Update Profile</a>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
