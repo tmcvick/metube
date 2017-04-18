@@ -54,7 +54,7 @@
           include_once "../php/include.php";
 
           if (isset($_SESSION["glbl_user"]))
-              echo '<a class="w-dropdown-link" href="browse_videos.php?user_id=' . $_SESSION["glbl_user"]->user_id . '><strong>Videos</strong></a>'
+              echo '<a class="w-dropdown-link" href="browse_videos.php?user_id=' . $_SESSION["glbl_user"]->user_id . '"><strong>Videos</strong></a>'
           ?>
           <a class="w-dropdown-link" href="browse-all-pictures.html"><strong>Pictures</strong></a>
           <a class="w-dropdown-link" href="view-all-audio.html"><strong>Audio</strong></a>
