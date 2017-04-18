@@ -51,6 +51,8 @@
       </div>
       <nav class="w-dropdown-list"><a class="dropdown-link w-dropdown-link" href="my_channel.php"><strong>All Media</strong></a>
           <?php
+          include_once "../php/include.php";
+
           if (isset($_SESSION["glbl_user"]))
               echo '<a class="w-dropdown-link" href="browse_videos.php?user_id=' . $_SESSION["glbl_user"]->user_id . '><strong>Videos</strong></a>'
           ?>
@@ -80,11 +82,10 @@
           </nav>
       </div>
   </div>
-    <h1>My Videos</h1>
+    <h1>Videos</h1>
 
   <?php
   if(isset($_REQUEST['user_id'])) {
-  include_once "../php/include.php";
       $user =  $_REQUEST['user_id'];
       
       $sql = "SELECT * FROM data WHERE user_id = '$user' AND type='video'";
