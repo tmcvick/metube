@@ -29,7 +29,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     if ($resultData = mysqli_query($conn, $sql)) {
         while ($rowData = mysqli_fetch_assoc($resultData)) {
-            echo json_encode($rowData);
+            displayRow($rowData);
         }
     } else {
         echo "Error with getting data <br>";
