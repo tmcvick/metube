@@ -85,8 +85,6 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     echo '<script language="javascript">';
     echo 'alert("User not logged in!")';
     echo '</script>';
-    header("Location: ../login.php"); /* Redirect browser */
-    exit();
 } else {
     $user =  $_SESSION['glbl_user']->user_id;
     $sql = "SELECT * FROM data";

@@ -63,7 +63,6 @@
     <div class="w-nav-button">
       <div class="w-icon-nav-menu"></div>
     </div><a class="w-nav-link" href="upload.html" id="uploadLink"><strong>Upload Media</strong></a><a class="w-nav-link" href="messages.html" id="messagesLink"><strong>Messages</strong></a>
-  </div>
   <div class="w-dropdown" data-delay="0" data-hover="1">
       <div class="w-dropdown-toggle" id="browseDropDown">
           <div><strong>Browse</strong>
@@ -76,6 +75,8 @@
           <a class="w-dropdown-link" href="view-all-audio.html"><strong>Audio</strong></a>
       </nav>
   </div>
+  </div>
+
   <h1>My Channel</h1>
   
   <?php
@@ -85,8 +86,6 @@
           echo '<script language="javascript">';
           echo 'alert("User not logged in!")';
           echo '</script>';
-          header("Location: ../login.php"); /* Redirect browser */
-          exit();
       } else {
           $user =  $_SESSION['glbl_user']->user_id;
           $sql = "SELECT * FROM data WHERE user_id = '$user'";
