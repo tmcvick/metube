@@ -11,8 +11,6 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     echo '<script language="javascript">';
     echo 'alert("User not logged in!")';
     echo '</script>';
-    header("Location: ../login.php"); /* Redirect browser */
-    exit();
 } else {
 
     $fname = $_REQUEST['fname'];
@@ -26,7 +24,9 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $sql = "UPDATE user INNER JOIN user_security ON user_security.security_id = user.security_id SET
             user.fname='$fname', user.lname='$lname', user.username='$uname', user.email='$email', user.channel_name='$channel', user_security.password='$pword' WHERE user_id = '$id'";
     if ($result = mysqli_query($conn, $sql)) {
-        echo 'User id update: ' . $id;
+        $_SESSION["glbl_user"] = mysqli_fetch_object($result);
+        header("Location: ../html/view_profile.php");
+        exit();
     } else {
         echo $conn->error;
     }
