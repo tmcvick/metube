@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!--  This site was created in Webflow. http://www.webflow.com -->
 <!--  Last Published: Mon Apr 17 2017 01:36:56 GMT+0000 (UTC)  -->
-<html data-wf-page="58ec496d3007283413b397cb" data-wf-site="58e64e9e44b92de142263990">
+<html data-wf-page="58f04a930e9e322aaed5f6df" data-wf-site="58e64e9e44b92de142263990">
 <head>
     <meta charset="utf-8">
-    <title>Channel</title>
-    <meta content="Channel" property="og:title">
+    <title>Browse All Videos</title>
+    <meta content="Browse All Videos" property="og:title">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="Webflow" name="generator">
     <link href="../css/normalize.css" rel="stylesheet" type="text/css">
@@ -15,7 +15,7 @@
     <link href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
 </head>
-<body data-ix="new-interaction">
+<body>
 <div class="section-2">
     <div class="row-3 w-row">
         <div class="w-col w-col-1"><img src="../images/paw.png" width="64">
@@ -82,40 +82,39 @@
         </nav>
     </div>
 </div>
-<h1>Browse All Media</h1>
+<h1>Videos</h1>
 
 <?php
+if(isset($_REQUEST['user_id'])) {
+    $user =  $_REQUEST['user_id'];
 
-if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-    echo '<script language="javascript">';
-    echo 'alert("User not logged in!")';
-    echo '</script>';
+    $sql = "SELECT * FROM data WHERE user_id = '$user' AND type='audio'";
 } else {
-    $user =  $_SESSION['glbl_user']->user_id;
-    $sql = "SELECT * FROM data";
-    if ($resultData = mysqli_query($conn, $sql)) {
-        //echo json_encode($resultData);
-        while ($rowData = mysqli_fetch_assoc($resultData)) {
-            echo json_encode($rowData);
-            $data_id = $rowData['data_id'];
-            $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
-            if ($resultTag = mysqli_query($conn, $sql)) {
-                while ($rowTag = mysqli_fetch_assoc($resultTag)) {
-                    echo '<br>';
-                    echo json_encode($rowTag);
-                }
-            } else {
-                echo "Error with getting tags <br>";
-                echo $conn->error;
-            }
-            echo '<br>';
-        }
-    } else {
-        echo "Error with getting data <br>";
-        echo $conn->error;
-    }
+    $sql = "SELECT * FROM data WHERE type='audio'";
+
 }
 
+if ($resultData = mysqli_query($conn, $sql)) {
+    //echo json_encode($resultData);
+    while ($rowData = mysqli_fetch_assoc($resultData)) {
+        echo json_encode($rowData);
+        $data_id = $rowData['data_id'];
+        $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
+        if ($resultTag = mysqli_query($conn, $sql)) {
+            while ($rowTag = mysqli_fetch_assoc($resultTag)) {
+                echo '<br>';
+                echo json_encode($rowTag);
+            }
+        } else {
+            echo "Error with getting tags <br>";
+            echo $conn->error;
+        }
+        echo '<br>';
+    }
+} else {
+    echo "Error with getting data <br>";
+    echo $conn->error;
+}
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
