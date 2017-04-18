@@ -59,7 +59,7 @@
 
           ?>
           <a class="w-dropdown-link" href="browse-playlists.html"><strong>Playlists</strong></a>
-        <a class="w-dropdown-link" href="browse-favorites.html"><span><strong>Favorites</strong></span></a>
+        <a class="w-dropdown-link" href="browse_favorites.php"><span><strong>Favorites</strong></span></a>
       </nav>
     </div>
     <nav class="w-nav-menu" role="navigation"><a class="w-nav-link" href="view_profile.php" id="profileLink"><strong>My Profile</strong></a>
