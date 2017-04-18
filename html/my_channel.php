@@ -62,7 +62,7 @@
         <a class="w-dropdown-link" href="browse-favorites.html"><span><strong>Favorites</strong></span></a>
       </nav>
     </div>
-    <nav class="w-nav-menu" role="navigation"><a class="w-nav-link" href="view-profile.html" id="profileLink"><strong>My Profile</strong></a>
+    <nav class="w-nav-menu" role="navigation"><a class="w-nav-link" href="view_profile.php" id="profileLink"><strong>My Profile</strong></a>
       <a class="nav-link w-nav-link" href="../php/logout.php"><strong id="logoutLink">Logout</strong></a>
     </nav>
     <div class="w-nav-button">
