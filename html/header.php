@@ -41,7 +41,7 @@
             echo '<a class="w-dropdown-link" href="browse_audio.php?user_id=' . $_SESSION["glbl_user"]->user_id . '"><strong>Audio</strong></a>';
 
             ?>
-            <a class="w-dropdown-link" href="browse-playlists.html"><strong>Playlists</strong></a>
+            <a class="w-dropdown-link" href="list_playlists.php"><strong>Playlists</strong></a>
             <a class="w-dropdown-link" href="browse_favorites.php"><span><strong>Favorites</strong></span></a>
         </nav>
     </div>
