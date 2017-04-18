@@ -19,4 +19,9 @@
   } catch (PDOException $e) {
       echo "Connection Failed\n", $e->getMessage();
   }
+
+  function displayRow($sql) {
+      echo json_encode($sql);
+      return;
+  }
 ?>
