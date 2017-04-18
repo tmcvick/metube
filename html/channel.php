@@ -63,7 +63,9 @@
     <div class="w-nav-button">
       <div class="w-icon-nav-menu"></div>
     </div><a class="w-nav-link" href="upload.html" id="uploadLink"><strong>Upload Media</strong></a><a class="w-nav-link" href="messages.html" id="messagesLink"><strong>Messages</strong></a>
-      <?php
+  </div>
+
+  <?php
       include_once "../php/include.php";
 
       if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
@@ -99,8 +101,6 @@
       }
 
       ?>
-
-  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
   <script src="../js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
