@@ -50,7 +50,10 @@
         <div class="w-icon-dropdown-toggle"></div>
       </div>
       <nav class="w-dropdown-list"><a class="dropdown-link w-dropdown-link" href=""><strong>All Media</strong></a>
-        <a class="w-dropdown-link" href="browse-all-videos.html"><strong>Videos</strong></a>
+          <?php
+          if (isset($_SESSION["glbl_user"]))
+            echo '<a class="w-dropdown-link" href="browse_videos.php?user_id=' . $_SESSION["glbl_user"]->user_id . '><strong>Videos</strong></a>'
+          ?>
         <a class="w-dropdown-link" href="browse-all-pictures.html"><strong>Pictures</strong></a>
         <a class="w-dropdown-link" href="view-all-audio.html"><strong>Audio</strong></a>
         <a class="w-dropdown-link" href="browse-playlists.html"><strong>Playlists</strong></a>
@@ -70,7 +73,7 @@
           <div class="w-icon-dropdown-toggle"></div>
       </div>
       <nav class="w-dropdown-list"><a class="dropdown-link w-dropdown-link" href="browse_all.php"><strong>All Media</strong></a>
-          <a class="w-dropdown-link" href="browse-all-videos.html"><strong>Videos</strong></a>
+          <a class="w-dropdown-link" href="browse_videos.php"><strong>Videos</strong></a>
           <a class="w-dropdown-link" href="browse-all-pictures.html"><strong>Pictures</strong></a>
           <a class="w-dropdown-link" href="view-all-audio.html"><strong>Audio</strong></a>
       </nav>
