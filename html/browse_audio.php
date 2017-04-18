@@ -82,7 +82,7 @@
         </nav>
     </div>
 </div>
-<h1>Videos</h1>
+<h1>Audio</h1>
 
 <?php
 if(isset($_REQUEST['user_id'])) {
