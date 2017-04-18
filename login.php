@@ -32,7 +32,7 @@ if(!isset($_REQUEST["user"]) || !isset($_REQUEST['pass'])) {
             $gt_ID = "SELECT * FROM user WHERE security_id = '$sec_id->security_id' ";//set session user
             $id_result = mysqli_query($conn, $gt_ID);
             $_SESSION["glbl_user"] = mysqli_fetch_object($id_result);
-            header("Location: ./html/channel.html"); /* Redirect browser */
+            header("Location: ./html/channel.php"); /* Redirect browser */
             exit();
         } else {
             echo 'Login failed';

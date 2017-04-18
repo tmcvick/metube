@@ -36,12 +36,6 @@
                   </div>
                 </div>
               </form>
-              <div class="w-form-done">
-                <div>Thank you! Your submission has been received!</div>
-              </div>
-              <div class="w-form-fail">
-                <div>Oops! Something went wrong while submitting the form</div>
-              </div>
             </div>
           </div>
         </div>
@@ -69,6 +63,43 @@
     <div class="w-nav-button">
       <div class="w-icon-nav-menu"></div>
     </div><a class="w-nav-link" href="upload.html" id="uploadLink"><strong>Upload Media</strong></a><a class="w-nav-link" href="messages.html" id="messagesLink"><strong>Messages</strong></a>
+      <?php
+      include_once "../php/include.php";
+
+      if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
+          echo '<script language="javascript">';
+          echo 'alert("User not logged in!")';
+          echo '</script>';
+          header("Location: ../login.php"); /* Redirect browser */
+          exit();
+      } else {
+          $user =  $_SESSION['glbl_user']->user_id;
+          $sql = "SELECT * FROM data WHERE user_id = '$user'";
+          if ($resultData = mysqli_query($conn, $sql)) {
+              //echo json_encode($resultData);
+              while ($rowData = mysqli_fetch_assoc($resultData)) {
+                  echo json_encode($rowData);
+                  $data_id = $rowData['data_id'];
+                  $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
+                  if ($resultTag = mysqli_query($conn, $sql)) {
+                      while ($rowTag = mysqli_fetch_assoc($resultTag)) {
+                          echo '<br>';
+                          echo json_encode($rowTag);
+                      }
+                  } else {
+                      echo "Error with getting tags <br>";
+                      echo $conn->error;
+                  }
+                  echo '<br>';
+              }
+          } else {
+              echo "Error with getting data <br>";
+              echo $conn->error;
+          }
+      }
+
+      ?>
+
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
   <script src="../js/webflow.js" type="text/javascript"></script>

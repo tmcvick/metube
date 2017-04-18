@@ -6,7 +6,7 @@ foreach($iterator as $item) {
 }
 session_start();
 if (isset($_SESSION['glbl_user']))    {
-    header("Location: ./channel.html"); /* Redirect browser */
+    header("Location: ./channel.php"); /* Redirect browser */
     exit();
 }
 
