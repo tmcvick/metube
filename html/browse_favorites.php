@@ -27,12 +27,12 @@
                 </div>
                 <div class="w-col w-col-6">
                     <div class="w-form">
-                        <form data-name="Email Form 2" id="email-form-2" name="email-form-2">
+                        <form data-name="Search Form" id="search_form" name="search_form" method="post" action="search_results.php">
                             <div class="row w-row">
                                 <div class="column-3 w-col w-col-10">
-                                    <input class="text-field-7 w-input" data-name="searchTxt" id="searchTxt" maxlength="256" name="searchTxt" placeholder="Enter your search criteria" type="text">
+                                    <input class="text-field-7 w-input" data-name="keyword" id="keyword" maxlength="256" name="keyword" placeholder="Enter your search criteria" type="text" required>
                                 </div>
-                                <div class="column-4 w-col w-col-2"><a class="button w-button" href="search-results.html" id="searchBtn">Search</a>
+                                <div class="column-4 w-col w-col-2"><button class="button w-button" type="submit" id="searchBtn">Search</button>
                                 </div>
                             </div>
                         </form>

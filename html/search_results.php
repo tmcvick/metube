@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!--  This site was created in Webflow. http://www.webflow.com -->
 <!--  Last Published: Mon Apr 17 2017 01:36:56 GMT+0000 (UTC)  -->
-<html data-wf-page="58f04a930e9e322aaed5f6df" data-wf-site="58e64e9e44b92de142263990">
+<html data-wf-page="58ec496d3007283413b397cb" data-wf-site="58e64e9e44b92de142263990">
 <head>
     <meta charset="utf-8">
-    <title>Browse All Videos</title>
-    <meta content="Browse All Videos" property="og:title">
+    <title>Channel</title>
+    <meta content="Channel" property="og:title">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="Webflow" name="generator">
     <link href="../css/normalize.css" rel="stylesheet" type="text/css">
@@ -15,7 +15,7 @@
     <link href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
 </head>
-<body>
+<body data-ix="new-interaction">
 <div class="section-2">
     <div class="row-3 w-row">
         <div class="w-col w-col-1"><img src="../images/paw.png" width="64">
@@ -27,12 +27,12 @@
                 </div>
                 <div class="w-col w-col-6">
                     <div class="w-form">
-                        <form data-name="Search Form" id="search_form" name="search_form" method="post" action="search_results.php">
+                        <form data-name="Email Form 2" id="email-form-2" name="email-form-2">
                             <div class="row w-row">
                                 <div class="column-3 w-col w-col-10">
-                                    <input class="text-field-7 w-input" data-name="keyword" id="keyword" maxlength="256" name="keyword" placeholder="Enter your search criteria" type="text" required>
+                                    <input class="text-field-7 w-input" data-name="searchTxt" id="searchTxt" maxlength="256" name="searchTxt" placeholder="Enter your search criteria" type="text">
                                 </div>
-                                <div class="column-4 w-col w-col-2"><button class="button w-button" type="submit" id="searchBtn">Search</button>
+                                <div class="column-4 w-col w-col-2"><a class="button w-button" href="search-results.html" id="searchBtn">Search</a>
                                 </div>
                             </div>
                         </form>
@@ -82,39 +82,29 @@
         </nav>
     </div>
 </div>
-<h1>Pictures</h1>
+<h1>Search Results</h1>
 
 <?php
-if(isset($_REQUEST['user_id'])) {
-    $user =  $_REQUEST['user_id'];
 
-    $sql = "SELECT * FROM data WHERE user_id = '$user' AND type='picture'";
+if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
+    echo '<script language="javascript">';
+    echo 'alert("User not logged in!")';
+    echo '</script>';
 } else {
-    $sql = "SELECT * FROM data WHERE type='picture'";
+    $query = $_REQUEST['keyword'];
 
-}
+    $sql = "SELECT data.* FROM data INNER JOIN data_tag on data_tag.data_id = data.data_id INNER JOIN tag on data_tag.tag_id = tag.tag_id WHERE tag.keyword='$query'";
 
-if ($resultData = mysqli_query($conn, $sql)) {
-    //echo json_encode($resultData);
-    while ($rowData = mysqli_fetch_assoc($resultData)) {
-        echo json_encode($rowData);
-        $data_id = $rowData['data_id'];
-        $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
-        if ($resultTag = mysqli_query($conn, $sql)) {
-            while ($rowTag = mysqli_fetch_assoc($resultTag)) {
-                echo '<br>';
-                echo json_encode($rowTag);
-            }
-        } else {
-            echo "Error with getting tags <br>";
-            echo $conn->error;
+    if ($resultData = mysqli_query($conn, $sql)) {
+        while ($rowData = mysqli_fetch_assoc($resultData)) {
+            echo json_encode($rowData);
         }
-        echo '<br>';
+    } else {
+        echo "Error with getting data <br>";
+        echo $conn->error;
     }
-} else {
-    echo "Error with getting data <br>";
-    echo $conn->error;
 }
+
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
