@@ -94,19 +94,21 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $sql = "SELECT data.data_id, user.username, data.* FROM user_favorite INNER JOIN user on user_favorite.user_id = user.user_id  INNER JOIN data on user_favorite.data_id=data.data_id WHERE user_favorite.user_id='$user';";
     if ($resultData = mysqli_query($conn, $sql)) {
         while ($rowData = mysqli_fetch_assoc($resultData)) {
-            echo '<div class="w-container">
-    <div class="w-row">
-      <div class="w-col w-col-6"><a class="link" href="#" id="faveLink">Favorites Link 1</a>
-      </div>
-      <div class="w-col w-col-6"><img class="image-2" id="removeImg" sizes="20px" src="../images/milker-X-icon.png" srcset="../images/milker-X-icon-p-500.png 500w, ../images/milker-X-icon-p-800.png 800w, ../images/milker-X-icon.png 2400w" width="20">
-      </div>
-    </div>
-  </div>'  ;
-            echo json_encode($rowData);
             $data_id = $rowData['data_id'];
+
+            echo '<div class="w-container">
+                <div class="w-row">
+                  <div class="w-col w-col-6"><a class="link" href="#" id="faveLink">Favorites Link 1</a>
+                  </div>
+                  <div class="w-col w-col-6"><a href="../php/remove_favorite.php?data_id=' . $data_id . '"><img  class="image-2" id="removeImg" sizes="20px" src="../images/milker-X-icon.png" srcset="../images/milker-X-icon-p-500.png 500w, ../images/milker-X-icon-p-800.png 800w, ../images/milker-X-icon.png 2400w" width="20"></a>
+                  </div>
+                </div>
+              </div>'  ;
+            echo json_encode($rowData);
             $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
             if ($resultTag = mysqli_query($conn, $sql)) {
                 while ($rowTag = mysqli_fetch_assoc($resultTag)) {
+                    echo json_encode($rowTag);
                 }
             } else {
                 echo "Error with getting tags <br>";
