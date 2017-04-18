@@ -49,7 +49,7 @@
         </div>
         <div class="w-icon-dropdown-toggle"></div>
       </div>
-      <nav class="w-dropdown-list"><a class="dropdown-link w-dropdown-link" href="channel.html"><strong>All Media</strong></a>
+      <nav class="w-dropdown-list"><a class="dropdown-link w-dropdown-link" href=""><strong>All Media</strong></a>
         <a class="w-dropdown-link" href="browse-all-videos.html"><strong>Videos</strong></a>
         <a class="w-dropdown-link" href="browse-all-pictures.html"><strong>Pictures</strong></a>
         <a class="w-dropdown-link" href="view-all-audio.html"><strong>Audio</strong></a>
@@ -64,7 +64,20 @@
       <div class="w-icon-nav-menu"></div>
     </div><a class="w-nav-link" href="upload.html" id="uploadLink"><strong>Upload Media</strong></a><a class="w-nav-link" href="messages.html" id="messagesLink"><strong>Messages</strong></a>
   </div>
-
+  <div class="w-dropdown" data-delay="0" data-hover="1">
+      <div class="w-dropdown-toggle" id="browseDropDown">
+          <div><strong>Browse</strong>
+          </div>
+          <div class="w-icon-dropdown-toggle"></div>
+      </div>
+      <nav class="w-dropdown-list"><a class="dropdown-link w-dropdown-link" href="browse_all.php"><strong>All Media</strong></a>
+          <a class="w-dropdown-link" href="browse-all-videos.html"><strong>Videos</strong></a>
+          <a class="w-dropdown-link" href="browse-all-pictures.html"><strong>Pictures</strong></a>
+          <a class="w-dropdown-link" href="view-all-audio.html"><strong>Audio</strong></a>
+      </nav>
+  </div>
+  <h1>My Channel</h1>
+  
   <?php
       include_once "../php/include.php";
 
