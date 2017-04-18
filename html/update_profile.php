@@ -104,21 +104,21 @@ $id = $_SESSION['glbl_user']->user_id;
             <div class="w-row">
                 <div class="column-9 w-col w-col-6">
                     <label class="lastnamelbl" for="fname">First Name:</label>
-                    <input class="text-field-3 w-input" data-name="fname" id="fname" maxlength="256" name="fname" placeholder="<?= $first ?>" required="required" type="text">
+                    <input class="text-field-3 w-input" data-name="fname" id="fname" maxlength="256" name="fname" value="<?= $first ?>" required="required" type="text">
                 </div>
                 <div class="column-10 w-col w-col-6">
                     <label class="lastnamelbl" for="lname">Last Name:</label>
-                    <input class="text-field-3 w-input" data-name="lname" id="lname" maxlength="256" name="lname" placeholder="<?= $last ?>" required="required" type="text">
+                    <input class="text-field-3 w-input" data-name="lname" id="lname" maxlength="256" name="lname" value="<?= $last ?>" required="required" type="text">
                 </div>
             </div>
             <label for="email">Email Address:</label>
-            <input class="text-field-4 w-input" data-name="email" id="email" maxlength="256" name="email" placeholder="<?= $email ?>" required="required" type="email">
+            <input class="text-field-4 w-input" data-name="email" id="email" maxlength="256" name="email" value="<?= $email ?>" required="required" type="email">
             <label for="uname">Username:</label>
-            <input class="text-field-5 w-input" data-name="uname" id="uname" maxlength="256" name="uname" placeholder="<?= $username ?>" required="required" type="text">
+            <input class="text-field-5 w-input" data-name="uname" id="uname" maxlength="256" name="uname" value="<?= $username ?>" required="required" type="text">
             <label class="lastnamelbl" for="channel">Channel Name:</label>
-            <input class="text-field-5 w-input" data-name="channel" id="channel" maxlength="256" name="channel" placeholder="<?= $channel ?>" required="required" type="text">
+            <input class="text-field-5 w-input" data-name="channel" id="channel" maxlength="256" name="channel" value="<?= $channel ?>" required="required" type="text">
             <label for="pword">Password:</label>
-            <input class="text-field-6 w-input" data-name="pword" id="pword" maxlength="256" name="pword" placeholder="Enter your new password" required="required" type="password">
+            <input class="text-field-6 w-input" data-name="pword" id="pword" maxlength="256" name="pword" placeholder="Enter your new (or old) password" required="required" type="password">
             <input type="hidden" value="<?= $id ?>" name="id" id="id">
             <div class="div-block-9">
                 <button class="button-4 w-button" type="submit">Save Changes</button>
