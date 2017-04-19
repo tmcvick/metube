@@ -35,17 +35,17 @@ include "header.php";
                 </div>';
         } else {
                 echo '<table>';
-                echo '<tr>';
-                echo '<th>From</th>';
-                echo '<th>Subject</th>';
-                echo '<th>Time</th>';
+                echo '<tr class="w-row">';
+                echo '<th class="w-col w-col-3"><stong>From</stong></th>';
+                echo '<th class="w-col w-col-6"><strong>Subject</strong></th>';
+                echo '<th class="w-col w-col-3"><strong>Time</strong></th>';
                 echo '</tr>';
 
                 while($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $row['fromUser'] . "</td>";
-                    echo "<td>" . $row['subject'] . "</td>";
-                    echo "<td>" . date( 'm/d/y', strtotime($row['timestamp']))  . "</td>";
+                    echo "<tr class=\"w-row\">";
+                    echo "<td class=\"w-col w-col-3\">" . $row['fromUser'] . "</td>";
+                    echo "<td class=\"w-col w-col-6\">" . $row['subject'] . "</td>";
+                    echo "<td class=\"w-col w-col-3\">" . date( 'm/d/y', strtotime($row['timestamp']))  . "</td>";
                     echo "</tr>";
             }
         }
