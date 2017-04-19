@@ -15,9 +15,7 @@ include "header.php";
 ?>
 <h1>Playlists</h1>
 <div class="w-container">
-    <div class="w-row">
-        <div class="column-17 w-clearfix w-col w-col-6"><a class="button-7 w-button" href="create-playlist.html" id="createBtn">Create New Playlist</a>
-        </div>
+    <div><a class="button-7 w-button" href="create_playlist.php" id="createBtn">Create New Playlist</a>
     </div>
 </div>
 <?php
