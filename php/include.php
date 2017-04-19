@@ -22,7 +22,14 @@ try {
 
 function displayRow($sql)
 {
-    echo json_encode($sql);
+    if (isset($sql['keyword'])) {
+        //this is a tag
+        echo "tag keyword: " . $sql['keyword'];
+    } else {
+        //this is a data object
+        echo '<br>';
+        echo json_encode($sql);
+    }
     return;
 }
 
