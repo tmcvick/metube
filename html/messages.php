@@ -51,15 +51,15 @@ include "header.php";
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<div class="w-row">
             <div class="w-col w-col-3">
-                <div><strong>' . $row['fromUser'] . '</strong>
+                <div>' . $row['fromUser'] . '
                 </div>
             </div>
             <div class="w-col w-col-6">
-                <div><strong>' . $row['subject'] .'</strong>
+                <div>' . $row['subject'] .'
                 </div>
             </div>
             <div class="w-col w-col-3">
-                <div><strong>' . date( 'm/d/y', strtotime($row['timestamp'])) .'</strong>
+                <div>' . date( 'm/d/y', strtotime($row['timestamp'])) .'
                 </div>
             </div>
         </div>';
