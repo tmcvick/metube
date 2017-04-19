@@ -26,7 +26,7 @@ include "header.php";
     $user = $_SESSION['glbl_user']->user_id;
 
     $sql = "SELECT Message.*, toUser.username as toUser, fromUser.username as fromUser FROM Message INNER JOIN conversation on Message.conversation_id = conversation.conversation_id INNER JOIN user fromUser on conversation.`from` = fromUser.user_id INNER JOIN user toUser on conversation.`to` = toUser.user_id
-    WHERE conversation.to=$user or conversation.from=$user ORDER BY conversation.conversation_id, Message.read_ind, Message.timestamp DESC";
+    WHERE conversation.to=$user or conversation.from=$user GROUP BY conversation.conversation_id ORDER BY Message.read_ind, conversation.conversation_id, Message.timestamp DESC";
 
     if ($result = mysqli_query($conn, $sql)) {
         if ($result->num_rows == 0) {
