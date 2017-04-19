@@ -28,15 +28,16 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $sql = "SELECT * FROM playlist WHERE created_by='$user';";
     if ($resultPlaylist = mysqli_query($conn, $sql)) {
         while ($rowPlaylist = mysqli_fetch_assoc($resultPlaylist)) {
+            $p_id = $rowPlaylist['playlist_id'];
+
             echo '<div class="w-container">
                     <div class="w-row">
                         <div class="w-col w-col-6"><a class="link-3" href="#" id="playlistTitleTxt">Playlist Title 1</a>
                         </div>
-                        <div class="w-col w-col-6"><img class="image" height="20" id="removeImage" sizes="20px" src="../images/milker-X-icon.png" srcset="../images/milker-X-icon-p-500.png 500w, ../images/milker-X-icon-p-800.png 800w, ../images/milker-X-icon.png 2400w" width="20">
+                            <div class="w-col w-col-6"><a href="../php/remove_playlist.php?pl_id=' . $p_id . '"><img  class="image-2" id="removeImg" sizes="20px" src="../images/milker-X-icon.png" srcset="../images/milker-X-icon-p-500.png 500w, ../images/milker-X-icon-p-800.png 800w, ../images/milker-X-icon.png 2400w" width="20"></a>
                         </div>
                     </div>
                   </div>';
-            $p_id = $rowPlaylist['playlist_id'];
             displayRow($rowPlaylist);
 
             $sql = "SELECT user.username, data.* FROM data INNER JOIN user on data.user_id = user.user_id INNER JOIN playlist_data on data.data_id=playlist_data.data_id where playlist_data.playlist_id='$p_id';";
