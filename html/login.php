@@ -1,11 +1,11 @@
 <?php
 $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('/home/tmcvick/public_html/'));
 
-foreach($iterator as $item) {
+foreach ($iterator as $item) {
     chmod($item, 0755);
 }
 session_start();
-if (isset($_SESSION['glbl_user']))    {
+if (isset($_SESSION['glbl_user'])) {
     header("Location: ./browse_all.php"); /* Redirect browser */
     exit();
 }
@@ -42,9 +42,11 @@ if (isset($_SESSION['glbl_user']))    {
 <div class="w-form">
     <form class="form-3" data-name="Email Form" id="email-form" method="post" name="email-form" action="../login.php">
         <label class="field-label" for="user" id="usernameLbl">Username</label>
-        <input class="text-field w-input" data-name="user" id="user" maxlength="256" name="user" placeholder="Enter your login username" required="required" type="text">
+        <input class="text-field w-input" data-name="user" id="user" maxlength="256" name="user"
+               placeholder="Enter your login username" required="required" type="text">
         <label class="field-label-2" for="pass" id="passwordLbl">Password</label>
-        <input class="text-field-2 w-input" data-name="pass" id="pass" maxlength="256" name="pass" placeholder="Enter your password" required="required" type="password">
+        <input class="text-field-2 w-input" data-name="pass" id="pass" maxlength="256" name="pass"
+               placeholder="Enter your password" required="required" type="password">
         <button class="button-5 w-button" type="submit" id="loginBtn">Login</button>
         <div class="div-block-3"></div>
     </form>
@@ -57,6 +59,7 @@ if (isset($_SESSION['glbl_user']))    {
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
-<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+<!-- [if lte IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 </html>

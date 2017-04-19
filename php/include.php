@@ -7,21 +7,23 @@
  * Time: 00:03
  */
 
- session_start();
- 
-  $servername = "mysql1.cs.clemson.edu";
-  $username = "metube_tob";
-  $password = "pass123word";
-  $dbname = "metube_tmcvick";
+session_start();
 
-  try {
-      $conn = new mysqli($servername, $username, $password, $dbname);
-  } catch (PDOException $e) {
-      echo "Connection Failed\n", $e->getMessage();
-  }
+$servername = "mysql1.cs.clemson.edu";
+$username = "metube_tob";
+$password = "pass123word";
+$dbname = "metube_tmcvick";
 
-  function displayRow($sql) {
-      echo json_encode($sql);
-      return;
-  }
+try {
+    $conn = new mysqli($servername, $username, $password, $dbname);
+} catch (PDOException $e) {
+    echo "Connection Failed\n", $e->getMessage();
+}
+
+function displayRow($sql)
+{
+    echo json_encode($sql);
+    return;
+}
+
 ?>

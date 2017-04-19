@@ -17,8 +17,8 @@ include "header.php";
 <h1>Pictures</h1>
 
 <?php
-if(isset($_REQUEST['user_id'])) {
-    $user =  $_REQUEST['user_id'];
+if (isset($_REQUEST['user_id'])) {
+    $user = $_REQUEST['user_id'];
 
     $sql = "SELECT * FROM data WHERE user_id = '$user' AND type='picture'";
 } else {
@@ -49,6 +49,7 @@ if ($resultData = mysqli_query($conn, $sql)) {
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
-<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+<!-- [if lte IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 </html>

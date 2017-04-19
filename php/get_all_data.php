@@ -5,7 +5,7 @@
  * Date: 4/5/17
  * Time: 00:29
  */
-    include_once "include.php";
+include_once "include.php";
 
 if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     echo '<script language="javascript">';

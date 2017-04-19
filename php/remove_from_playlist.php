@@ -20,7 +20,6 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $pl_id = $_REQUEST['pl_id'];
 
 
-
     $sql = "DELETE FROM playlist_data WHERE data_id = '$data_id' AND playlist_id= '$pl_id'";
 
     if ($result = mysqli_query($conn, $sql)) {

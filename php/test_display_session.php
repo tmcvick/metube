@@ -6,7 +6,7 @@
  * Time: 10:12
  */
 include_once "include.php";
-if(isset($_SESSION['glbl_user'])) {
+if (isset($_SESSION['glbl_user'])) {
     echo "user set: " . print_r($_SESSION, TRUE);
 
 } else {

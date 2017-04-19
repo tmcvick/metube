@@ -42,17 +42,17 @@ echo '<div class="div-block-11"></div>
 <div class="w-row">
     <div class="w-col w-col-3">
         <div class="text-block-10">';
-    echo $first . " " . $last ;
-    echo '</div>
-    </div>
-    <div class="w-col w-col-3">
-        <div class="text-block-7">'   ;
-echo $email  ;
+echo $first . " " . $last;
 echo '</div>
     </div>
     <div class="w-col w-col-3">
-        <div class="text-block-8">' ;
-echo $username ;
+        <div class="text-block-7">';
+echo $email;
+echo '</div>
+    </div>
+    <div class="w-col w-col-3">
+        <div class="text-block-8">';
+echo $username;
 echo '</div>
     </div>
     <div class="w-col w-col-3">
@@ -60,7 +60,7 @@ echo '</div>
 echo $channel;
 echo '</div>
     </div>
-</div> '  ;
+</div> ';
 ?>
 
 <div class="div-block-12"></div>
@@ -68,6 +68,7 @@ echo '</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
-<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+<!-- [if lte IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 </html>

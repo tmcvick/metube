@@ -23,7 +23,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         if ($result = mysqli_query($conn, $sql)) {
             header("Location: ../html/list_playlists.php");
             exit();
-        }   else {
+        } else {
             echo $conn->error;
         }
     } else {
