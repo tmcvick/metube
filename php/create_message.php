@@ -24,7 +24,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     $sql = "SELECT user_id from user where username = '$to';";
     if ($resultid = mysqli_query($conn, $sql)) {
-        $user_id = mysqli_fetch_object($resultid);
+        $user_id = mysqli_fetch_object($resultid)->user_id;
     } else {
         echo $conn->error;
     }
@@ -32,7 +32,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $sql = "SELECT conversation_id from conversation where conversation.to = '$to' AND conversation.from = '$from'; ";
     if ($resultconvo = mysqli_query($conn, $sql)) {
         if ($resultconvo->num_rows > 0) {
-            $convo_id = mysqli_fetch_object($resultconvo);
+            $convo_id = mysqli_fetch_object($resultconvo)->conversation_id;
         } else {
             $sql = "INSERT INTO conversation VALUES (NULL, '$user_id', '$from')";
             if ($result = mysqli_query($conn, $sql)) {
