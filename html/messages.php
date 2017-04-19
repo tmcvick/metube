@@ -34,7 +34,7 @@ include "header.php";
                 <div><strong>You have no messages!</strong>
                 </div>';
         } else {
-                echo '<table class="table table-hover table-bordered">';
+                echo '<table>';
                 echo '<tr>';
                 echo '<th>From</th>';
                 echo '<th>Subject</th>';
