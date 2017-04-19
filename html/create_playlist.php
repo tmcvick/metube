@@ -14,26 +14,19 @@
 <?php
 include "header.php";
 ?>
-  <div class="div-block-15"></div>
-  <div class="w-form">
-    <form class="form-6" data-name="Email Form 3" id="email-form-3" name="email-form-3">
-      <label for="playlistTitleTxt" id="playlistLbl">Playlist Name</label>
-      <input class="text-field-11 w-input" data-name="playlistTitleTxt" id="playlistTitleTxt" maxlength="256" name="playlistTitleTxt" placeholder="Enter the name of your playlist" type="text">
+<div class="w-form">
+    <form class="form-6" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_playlist.php" method="post">
+      <label for="pl_name" id="playlistLbl">Playlist Name</label>
+      <input class="text-field-11 w-input" data-name="pl_name" id="pl_name" maxlength="256" name="pl_name" placeholder="Enter the name of your playlist" required type="text">
       <div class="w-container">
         <div class="w-row">
-          <div class="column-14 w-col w-col-6"><a class="button-8 w-button" href="browse-playlists.html" id="createBtn">Create</a>
+          <div class="column-14 w-col w-col-6"><button class="button-8 w-button" type="submit" id="createBtn">Create</button>
           </div>
-          <div class="column-13 w-col w-col-6"><a class="button-10 w-button" href="browse-playlists.html" id="cancelBtn">Cancel</a>
+          <div class="column-13 w-col w-col-6"><a class="button-10 w-button" href="list_playlists.php" id="cancelBtn">Cancel</a>
           </div>
         </div>
       </div>
     </form>
-    <div class="w-form-done">
-      <div>Thank you! Your submission has been received!</div>
-    </div>
-    <div class="w-form-fail">
-      <div>Oops! Something went wrong while submitting the form</div>
-    </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
   <script src="../js/webflow.js" type="text/javascript"></script>

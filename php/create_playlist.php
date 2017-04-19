@@ -23,7 +23,8 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     if ($result = mysqli_query($conn, $sql)) {
         $playlist_id = mysqli_insert_id($conn);
-        echo 'Playlist created: ' . $playlist_id . '<br>';
+        header("Location: ../html/list_playlists.php"); /* Redirect browser */
+        exit();
     } else {
         echo $conn->error;
     }

@@ -25,7 +25,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     echo '</script>';
 } else {
     $user =  $_SESSION['glbl_user']->user_id;
-    $sql = "SELECT data.data_id, user.username, data.* FROM playlist INNER JOIN user on playlist.created_by = user.user_id  INNER JOIN playlist_data on playlist.playlist_id= playlist_data.playlist_id INNER JOIN data on playlist_data.data_id=data.data_id where playlist.created_by='$user';";
+    $sql = "SELECT data.data_id, user.username, data.*, playlist.name as playlistName FROM playlist INNER JOIN user on playlist.created_by = user.user_id  INNER JOIN playlist_data on playlist.playlist_id= playlist_data.playlist_id INNER JOIN data on playlist_data.data_id=data.data_id where playlist.created_by='$user';";
     if ($resultData = mysqli_query($conn, $sql)) {
         while ($rowData = mysqli_fetch_assoc($resultData)) {
             $data_id = $rowData['data_id'];
