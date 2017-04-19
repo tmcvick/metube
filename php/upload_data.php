@@ -65,6 +65,10 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                 echo $conn->error;
             }
         }
+        echo '<script>
+alert("Upload successful!");
+window.location.href="../html/my_channel.php";
+</script>';
 
     } else {
         echo "Error inserting into data table <br>";

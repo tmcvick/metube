@@ -10,12 +10,13 @@
     include "meta.php";
     ?>
 </head>
-<h1>Audio</h1>
 <?php
 include "header.php";
 ?>
+<h1>Audio</h1>
 
 <?php
+
 if (isset($_REQUEST['user_id'])) {
     $user = $_REQUEST['user_id'];
 
