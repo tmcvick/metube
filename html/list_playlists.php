@@ -28,13 +28,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $sql = "SELECT * FROM playlist WHERE created_by='$user';";
     if ($resultPlaylist = mysqli_query($conn, $sql)) {
         while ($rowPlaylist = mysqli_fetch_assoc($resultPlaylist)) {
-            $p_id = $rowPlaylist['playlist_id'];
-            $sql = "SELECT user.username, data.* FROM data INNER JOIN user on data.user_id = user.user_id INNER JOIN playlist_data on data.data_id=playlist_data.data_id where playlist_data.playlist_id='$p_id';";
-            if ($resultData = mysqli_query($conn, $sql)) {
-                while ($rowData = mysqli_fetch_assoc($resultData)) {
-                    $data_id = $rowData['data_id'];
-
-                    echo '<div class="w-container">
+            echo '<div class="w-container">
                     <div class="w-row">
                         <div class="w-col w-col-6"><a class="link-3" href="#" id="playlistTitleTxt">Playlist Title 1</a>
                         </div>
@@ -42,7 +36,13 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                         </div>
                     </div>
                   </div>';
-                    displayRow($rowPlaylist);
+            $p_id = $rowPlaylist['playlist_id'];
+            displayRow($rowPlaylist);
+
+            $sql = "SELECT user.username, data.* FROM data INNER JOIN user on data.user_id = user.user_id INNER JOIN playlist_data on data.data_id=playlist_data.data_id where playlist_data.playlist_id='$p_id';";
+            if ($resultData = mysqli_query($conn, $sql)) {
+                while ($rowData = mysqli_fetch_assoc($resultData)) {
+                    $data_id = $rowData['data_id'];
                     displayRow($rowData);
                     $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
                     if ($resultTag = mysqli_query($conn, $sql)) {
