@@ -48,7 +48,7 @@ include "header.php";
                 </div>
             </div>
         </div>';
-            while ($row = $result->fetch_object()) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 echo '<div class="w-row">
             <div class="w-col w-col-3">
                 <div><strong>' . $row['fromUser'] . '</strong>
