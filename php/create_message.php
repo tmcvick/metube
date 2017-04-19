@@ -29,7 +29,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         echo $conn->error;
     }
 
-    $sql = "SELECT conversation_id from conversation where to = '$to' AND from = '$from'; ";
+    $sql = "SELECT conversation_id from conversation where conversation.to = '$to' AND conversation.from = '$from'; ";
     if ($resultconvo = mysqli_query($conn, $sql)) {
         if ($resultconvo->num_rows > 0) {
             $convo_id = mysqli_fetch_object($resultconvo);
