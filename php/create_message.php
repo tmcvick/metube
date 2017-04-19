@@ -22,21 +22,36 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $created = date("Y-m-d H:i:s");
     $read = 0;
 
-    $sql = "INSERT INTO conversation VALUES (NULL, '$to', '$from')";
-    if ($result = mysqli_query($conn, $sql)) {
-        $convo_id = mysqli_insert_id($conn);
-        //echo 'Conversation created: ' . $convo_id . '<br>';
-        $sql = "INSERT INTO Message (subject,message, read_ind, timestamp, conversation_id) VALUES ('$subj','$msg', '$read', '$created', '$convo_id')";
+    $sql = "SELECT user_id from user where username = '$to';";
+    if ($resultid = mysqli_query($conn, $sql)) {
+        $user_id = mysqli_fetch_object($resultid);
+    } else {
+        echo $conn->error;
+    }
 
-        if ($result = mysqli_query($conn, $sql)) {
-            $message_id = mysqli_insert_id($conn);
-            echo '<script>
+    $sql = "SELECT conversation_id from conversation where to = '$to' AND from = '$from'; ";
+    if ($resultconvo = mysqli_query($conn, $sql)) {
+        if ($resultconvo->num_rows > 0) {
+            $convo_id = mysqli_fetch_object($resultconvo);
+        } else {
+            $sql = "INSERT INTO conversation VALUES (NULL, '$user_id', '$from')";
+            if ($result = mysqli_query($conn, $sql)) {
+                $convo_id = mysqli_insert_id($conn);
+            }   else {
+                echo $conn->error;
+            }
+        }
+            $sql = "INSERT INTO Message (subject,message, read_ind, timestamp, conversation_id) VALUES ('$subj','$msg', '$read', '$created', '$convo_id')";
+
+            if ($result = mysqli_query($conn, $sql)) {
+                $message_id = mysqli_insert_id($conn);
+                echo '<script>
 alert("Message sent!");
 window.location.href="../html/messages.php";
 </script>';
-        } else {
-            echo $conn->error;
-        }
+            } else {
+                echo $conn->error;
+            }
     } else {
         echo $conn->error;
     }
