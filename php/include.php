@@ -24,7 +24,7 @@ function displayRow($sql)
 {
     if (isset($sql['keyword'])) {
         //this is a tag
-        echo "tag keyword: " . $sql['keyword'];
+        echo " tag keyword: " . $sql['keyword'];
     } else {
         //this is a data object
         echo '<br>';

@@ -57,7 +57,7 @@
         <div class="w-icon-nav-menu"></div>
     </div>
     <a class="w-nav-link" href="upload.php" id="uploadLink"><strong>Upload Media</strong></a>
-    <a class="w-nav-link" href="messages.html" id="messagesLink"><strong>Messages</strong></a>
+    <a class="w-nav-link" href="messages.php" id="messagesLink"><strong>Messages</strong></a>
     <div class="w-dropdown" data-delay="0" data-hover="1">
         <div class="w-dropdown-toggle" id="browseDropDown">
             <div><strong>Browse</strong>
