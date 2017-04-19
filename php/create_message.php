@@ -25,12 +25,15 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $sql = "INSERT INTO conversation VALUES (NULL, '$to', '$from')";
     if ($result = mysqli_query($conn, $sql)) {
         $convo_id = mysqli_insert_id($conn);
-        echo 'Conversation created: ' . $convo_id . '<br>';
+        //echo 'Conversation created: ' . $convo_id . '<br>';
         $sql = "INSERT INTO Message (subject,message, read_ind, timestamp, conversation_id) VALUES ('$subj','$msg', '$read', '$created', '$convo_id')";
 
         if ($result = mysqli_query($conn, $sql)) {
             $message_id = mysqli_insert_id($conn);
-            echo 'Message created: ' . $message_id . '<br>';
+            echo '<script>
+alert("Message sent!");
+window.location.href="../html/messages.php";
+</script>';
         } else {
             echo $conn->error;
         }

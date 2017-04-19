@@ -17,7 +17,7 @@ include "header.php";
 
 <div class="div-block-21"></div>
 <div class="container-9 w-container">
-    <div class="div-block-20"><a class="button-9 w-button" href="compose-message.html" id="newMessageBtn">New
+    <div class="div-block-20"><a class="button-9 w-button" href="compose_message.php" id="newMessageBtn">New
             Message</a>
     </div>
     <div class="div-block-22"></div>
@@ -34,7 +34,7 @@ include "header.php";
                 <div><strong>You have no messages!</strong>
                 </div>';
         } else {
-            echo '<div class="w-row">
+            echo '<div class="w-row" style="border-bottom: solid; border-bottom-width: thick;">
             <div class="w-col w-col-3">
                 <div><strong>From</strong>
                 </div>
@@ -49,7 +49,13 @@ include "header.php";
             </div>
         </div>';
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<div class="w-row">
+                if ($row['read_ind'] == 0) {
+                    $color = "#ff5c00";
+                } else {
+                    $color = "white";
+                }
+                
+                echo '<div class="w-row" style="background-color: ' . $color . '">
             <div class="w-col w-col-3">
                 <div>' . $row['fromUser'] . '
                 </div>
