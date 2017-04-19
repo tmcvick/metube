@@ -34,35 +34,19 @@ include "header.php";
                 <div><strong>You have no messages!</strong>
                 </div>';
         } else {
-            echo '<div class="w-row">
-            <div class="w-col w-col-3">
-                <div><strong>From</strong>
-                </div>
-            </div>
-            <div class="w-col w-col-6">
-                <div><strong>Subject</strong>
-                </div>
-            </div>
-            <div class="w-col w-col-3">
-                <div><strong>Time</strong>
-                </div>
-            </div>
-        </div>';
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo '<div class="w-row">
-            <div class="w-col w-col-3">
-                <div><strong>' . $row['fromUser'] . '</strong>
-                </div>
-            </div>
-            <div class="w-col w-col-6">
-                <div><strong>' . $row['subject'] .'</strong>
-                </div>
-            </div>
-            <div class="w-col w-col-3">
-                <div><strong>' . date( 'm/d/y', strtotime($row['timestamp'])) .'</strong>
-                </div>
-            </div>
-        </div>';
+                echo '<table class="table table-hover table-bordered">';
+                echo '<tr>';
+                echo '<th>From</th>';
+                echo '<th>Subject</th>';
+                echo '<th>Time</th>';
+                echo '</tr>';
+
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row['fromUser'] . "</td>";
+                    echo "<td>" . $row['subject'] . "</td>";
+                    echo "<td>" . date( 'm/d/y', strtotime($row['timestamp']))  . "</td>";
+                    echo "</tr>";
             }
         }
     } else {
