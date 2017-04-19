@@ -25,33 +25,44 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     echo '</script>';
 } else {
     $user =  $_SESSION['glbl_user']->user_id;
-    $sql = "SELECT data.data_id, user.username, data.*, playlist.name as playlistName FROM playlist INNER JOIN user on playlist.created_by = user.user_id  INNER JOIN playlist_data on playlist.playlist_id= playlist_data.playlist_id INNER JOIN data on playlist_data.data_id=data.data_id where playlist.created_by='$user';";
+    $sql = "SELECT * FROM playlist WHERE created_by='$user';";
     if ($resultData = mysqli_query($conn, $sql)) {
-        while ($rowData = mysqli_fetch_assoc($resultData)) {
-            $data_id = $rowData['data_id'];
+        while ($rowPlaylist = mysqli_fetch_assoc($resultData)) {
+            $p_id = $rowPlaylist['playlist_id'];
+            displayRow($rowPlaylist);
+            $sql = "SELECT user.username, data.* FROM data INNER JOIN user on data.user_id = user.user_id INNER JOIN playlist_data on data.data_id=playlist_data.data_id where playlist_data.playlist_id='$p_id';";
+            if ($resultData = mysqli_query($conn, $sql)) {
+                while ($rowData = mysqli_fetch_assoc($resultData)) {
+                    $data_id = $rowData['data_id'];
 
-            echo '<div class="w-container">
+                    echo '<div class="w-container">
                     <div class="w-row">
                         <div class="w-col w-col-6"><a class="link-3" href="#" id="playlistTitleTxt">Playlist Title 1</a>
                         </div>
                         <div class="w-col w-col-6"><img class="image" height="20" id="removeImage" sizes="20px" src="../images/milker-X-icon.png" srcset="../images/milker-X-icon-p-500.png 500w, ../images/milker-X-icon-p-800.png 800w, ../images/milker-X-icon.png 2400w" width="20">
                         </div>
                     </div>
-                  </div>'  ;
-            displayRow($rowData);
-            $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
-            if ($resultTag = mysqli_query($conn, $sql)) {
-                while ($rowTag = mysqli_fetch_assoc($resultTag)) {
-                    displayRow($rowTag);
+                  </div>';
+                    displayRow($rowData);
+                    $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
+                    if ($resultTag = mysqli_query($conn, $sql)) {
+                        while ($rowTag = mysqli_fetch_assoc($resultTag)) {
+                            displayRow($rowTag);
+                        }
+                    } else {
+                        echo "Error with getting tags <br>";
+                        echo $conn->error;
+                    }
+                    echo '<br>';
                 }
             } else {
-                echo "Error with getting tags <br>";
+                echo "Error with getting data <br>";
                 echo $conn->error;
             }
-            echo '<br>';
         }
-    } else {
-        echo "Error with getting data <br>";
+    }
+    else {
+        echo "Error with getting playlists <br>";
         echo $conn->error;
     }
 }
