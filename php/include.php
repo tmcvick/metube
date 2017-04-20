@@ -40,7 +40,7 @@ function displayRow($sql)
              <input class="textarea" data-name="title" id="title" maxlength="256" name="pword"
                    value="' . $description . '" type="text" >
            </div>
-           </div><div class="w-container"> Keywords </div>';
+           </div><div class="w-container"> <strong>Keywords</strong> </div>';
     }
     return;
 }
