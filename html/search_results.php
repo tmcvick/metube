@@ -30,10 +30,17 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $sql = "SELECT data.* FROM data INNER JOIN data_tag on data_tag.data_id = data.data_id INNER JOIN tag on data_tag.tag_id = tag.tag_id WHERE tag.keyword='$query' ORDER BY data_id DESC";
 
     if ($resultData = mysqli_query($conn, $sql)) {
-        while ($rowData = mysqli_fetch_assoc($resultData)) {
-            displayRow($rowData);
+        if ($resultData->num_rows != 0) {
+            while ($rowData = mysqli_fetch_assoc($resultData)) {
+                displayRow($rowData);
+            }
+        } else {
+            echo '<div class="w-container">
+                    <h4>Your search returned no results.</h4>
+                </div>';
         }
-    } else {
+    }
+    else {
         echo "Error with getting data <br>";
         echo $conn->error;
     }
