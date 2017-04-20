@@ -15,7 +15,7 @@ include "header.php";
 ?>
 
 <div class="form-wrapper-2 w-form">
-    <form class="form-4" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/upload_data.php" method="post">
+    <form class="form-4" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/upload_data.php" method="post" enctype="multipart/form-data">
         <label for="titleTxt" id="titleLbl">Title</label>
         <input class="text-field-8 w-input" data-name="titleTxt" id="title" maxlength="256" name="title" placeholder="Enter the title of the media" type="text" required>
         <label for="typeText" id="typeLbl">Type</label>
