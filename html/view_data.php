@@ -40,7 +40,7 @@ if ($resultData = mysqli_query($conn, $sql)) {
     </div>';
 
     if ($rowData['type'] == "video") {
-        echo '<object style="margin-top: 20px; margin-bottom: 20px" align="center" id="MediaPlayer" width=320 height=286 classid="CLSID:22D6f312-B0F6-11D0-94AB-0080C74C7E95" standby="Loading Windows Media Player components…" type="application/x-oleobject" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,7,1112">
+        echo '<div style="margin-top: 20px; margin-bottom: 20px" align="center"><object id="MediaPlayer" width=320 height=286 classid="CLSID:22D6f312-B0F6-11D0-94AB-0080C74C7E95" standby="Loading Windows Media Player components…" type="application/x-oleobject" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,7,1112">
 
 <param name="filename" value="/~tmcvick/uploads/' . $rowData['filename'] . '">
 	<!-- echo $result_row[2].$result_row[1];  -->
@@ -51,7 +51,7 @@ if ($resultData = mysqli_query($conn, $sql)) {
 
 <embed type="application/x-mplayer2" src="/~tmcvick/uploads/' . $rowData['filename'] . '" name="MediaPlayer" width=320 height=240></embed>
 
-</object> ';
+</object> </div>';
     }
     if ($rowData['type'] == "picture") {
         echo '<div style="margin-top: 20px; margin-bottom: 20px" align="center"><img width="320" src="/~tmcvick/uploads/' . $rowData['filename'] . '"/></div>';
