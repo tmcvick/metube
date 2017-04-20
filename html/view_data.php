@@ -81,10 +81,10 @@ This audio failed to play
         <?php
             include "../php/display_comments.php";
             $content = displayComments($conn);
-            echo $content;
         ?>
         <input type="hidden" value="<?= $content ?>" name="comment" id="comment">
-<textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="msg" maxlength="5000" name="comment" placeholder="Add a comment..."></textarea>
+        <input type="hidden" value="<?= $data_id ?>" name="data_id" id="data_id">
+        <textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="msg" maxlength="5000" name="comment" placeholder="Add a comment..."></textarea>
 <input class="submit-button-5 w-button" data-wait="Please wait..." id="commentBtn" type="submit" value="Add Comment">
 </form>
 </div>
