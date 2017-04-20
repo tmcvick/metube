@@ -46,9 +46,9 @@ if ($resultData = mysqli_query($conn, $sql))
 <div class="w-container"></div>
 <div class="container-11 w-container">
     <div class="w-row">
-        <div class="column-18 w-col w-col-6"><a class="button-14 w-button" href="<?= "/~tmcvick/uploads/" . $rowData['filename'] ?>" id="downloadBtn" download>Download</a>
+        <div class="column-18 w-col w-col-6"><a class="button-14 w-button" href="<?= $rowData['filename'] ?>" id="downloadBtn" download>Download</a>
         </div>
-        <div class="column-19 w-col w-col-6"><button class="button-15 w-button" type = submit id="favoritesBtn" action="../php/add_favorite.php>Add to Favorites</button>
+        <div class="column-19 w-col w-col-6"><button class="button-15 w-button" type = submit id="favoritesBtn">Add to Favorites</button>
             <a class="button-16 w-button" href="add-to-playlist.html" id="playlistBtn">Add to playlist</a>
         </div>
     </div>
