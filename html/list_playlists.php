@@ -47,9 +47,9 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
             echo '<div class="w-container">
                 <div class="w-row"">
-                        <div class="w-col w-col-6" style="margin-top:0px"><h1 style="margin-top:0px">' . $title . '</h1>
+                        <div class="w-col w-col-6"><h1 style="margin-top:0px">' . $title . '</h1>
                         </div>
-                        <div class="w-col w-col-6" style="padding:15px"><a href="../php/remove_playlist.php?pl_id=' . $p_id . '"><img  class="image-2" id="removeImg" sizes="20px" src="../images/milker-X-icon.png" srcset="../images/milker-X-icon-p-500.png 500w, ../images/milker-X-icon-p-800.png 800w, ../images/milker-X-icon.png 2400w" width="20"></a>
+                        <div class="w-col w-col-6" style="padding:15px; column-width: 10pz"><a href="../php/remove_playlist.php?pl_id=' . $p_id . '"><img  class="image-2" id="removeImg" sizes="20px" src="../images/milker-X-icon.png" srcset="../images/milker-X-icon-p-500.png 500w, ../images/milker-X-icon-p-800.png 800w, ../images/milker-X-icon.png 2400w" width="20"></a>
                         </div>
                     </div>
            </div>';
@@ -66,7 +66,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                     $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
                     if ($resultTag = mysqli_query($conn, $sql)) {
                         if($resultTag->num_rows != 0) {
-                            echo '<div class="w-container" style="padding-left: 40px"><strong>Keywords: &nbsp</strong>';
+                            echo '<div class="w-container" style="padding-left: 70px"><strong>Keywords: &nbsp</strong>';
                             while ($rowTag = mysqli_fetch_assoc($resultTag)) {
                                 displayPlaylistRow($rowTag);
                             }
