@@ -40,7 +40,7 @@ if ($resultData = mysqli_query($conn, $sql))
     </div>';
 }
 
-<div class="w-container"></div>
+echo '<div class="w-container"></div>
 <div class="container-11 w-container">
     <div class="w-row">
         <div class="column-18 w-col w-col-6"><a class="button-14 w-button" href="#" id="downloadBtn">Download</a>
@@ -56,10 +56,12 @@ if ($resultData = mysqli_query($conn, $sql))
         <input class="submit-button-6 w-button" data-wait="Please wait..." id="commentBtn" type="submit" value="Comment">
     </form>
     </div>
-</div>
+</div>'
+?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="js/webflow.js" type="text/javascript"></script>
+
 <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
-?>
+
 </body>
 </html>
