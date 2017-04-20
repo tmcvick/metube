@@ -47,7 +47,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
             echo '<div class="w-container">
                 <div class="w-row">
-                        <div class="w-col w-col-6"><h2>' . $title . '</h2>
+                        <div class="w-col w-col-6"><h2 style="padding-top: 0">' . $title . '</h2>
                         </div>
                         <div class="w-col w-col-6"><a href="../php/remove_playlist.php?pl_id=' . $p_id . '"><img  class="image-2" id="removeImg" sizes="20px" src="../images/milker-X-icon.png" srcset="../images/milker-X-icon-p-500.png 500w, ../images/milker-X-icon-p-800.png 800w, ../images/milker-X-icon.png 2400w" width="20"></a>
                         </div>
