@@ -57,7 +57,7 @@ include "header.php";
                     $rec = $row['fromUser'];
                 }
 
-                    if ($row['read_ind'] == 0) {
+                    if ($row['read_ind'] == 0 && $row['toUser'] === $username) {
                     $color = "#ff5c00";
                 } else {
                     $color = "white";
