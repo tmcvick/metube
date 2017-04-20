@@ -19,7 +19,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $taglist = $_REQUEST['taglist'];
     $u_id = $_SESSION['glbl_user']->user_id;
 
-    $dirname = "/home/tmcvick/uploads/";
+    $dirname = "~tmcvick/uploads/";
     $target_file = $dirname . basename($_FILES["flname"]["name"]);
     echo '<script>
     alert("' . json_encode($_FILES).'");
