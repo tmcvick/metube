@@ -27,8 +27,8 @@ if ($resultData = mysqli_query($conn, $sql))
         $username = $user_rowData['username'];
     }
     $description = $rowData['description'];
-    echo '<div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
-        <div class="w-row">
+    echo '<div class="w-container" >
+        <div class="w-row" style="border-bottom: solid; border-bottom-width: thick;">
                 <div class="column-9 w-col w-col-6">
                     <h1>' . $title. '</h1>
                 </div>
