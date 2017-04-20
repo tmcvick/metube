@@ -35,6 +35,7 @@ if ($resultData = mysqli_query($conn, $sql))
                 <div class="column-10 w-col w-col-6">
                     <h3>Uploaded by ' . $username . '</h3>
                 </div>
+                </div>
     <h4>' . $description . '</h4>
     </div>';
 }
