@@ -81,6 +81,7 @@ This audio failed to play
         <?php
             include "../php/display_comments.php";
             $content = displayComments($conn);
+            echo '$content';
         ?>
         <input type="hidden" value="<?= $content ?>" name="comment" id="comment">
 <textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="msg" maxlength="5000" name="comment" placeholder="Add a comment..."></textarea>
