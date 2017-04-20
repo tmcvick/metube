@@ -38,7 +38,7 @@ include "header.php";
                         </div>
                     </div>
            </div>';
-                $sql = "SELECT user.username, data.* FROM data INNER JOIN user on data.user_id = user.user_id INNER JOIN playlist_data on data.data_id=playlist_data.data_id where playlist_data.playlist_id='$p_id' ORDER BY data_id DESC;";
+                $sql = "SELECT DISTINCT user.username, data.* FROM data INNER JOIN user on data.user_id = user.user_id INNER JOIN playlist_data on data.data_id=playlist_data.data_id where playlist_data.playlist_id='$p_id' ORDER BY data_id DESC;";
                 if ($resultData = mysqli_query($conn, $sql)) {
                     while ($rowData = mysqli_fetch_assoc($resultData)) {
                         $data_id = $rowData['data_id'];
@@ -46,7 +46,7 @@ include "header.php";
                         // TODO
                         //echo json_encode($rowData);
                         //displayPlaylistRow($rowData);
-                        $sql = "SELECT DISTINCT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
+                        $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
                         if ($resultTag = mysqli_query($conn, $sql)) {
                             if ($resultTag->num_rows != 0) {
                                 echo '<div class="w-container" style="padding-left: 70px"><strong>Keywords: &nbsp</strong>';
