@@ -38,7 +38,7 @@ function displayComments($conn)
                 font-size: 12px;
                 margin-bottom: 0;" align="left"><strong>Posted by&nbsp' . $from . '</strong></label>
 
-                <textarea class="message-box textarea-2 w-input" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="background-color: cornflowerblue;">' . $content . '</textarea>';
+                <textarea class="message-box textarea-2 w-input" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="border: solid; border-color: black">' . $content . '</textarea>';
             }
         } else {
             dieWithError(8);
