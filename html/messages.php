@@ -56,7 +56,7 @@ include "header.php";
                 }
                 
                 echo '
-                <div class="w-row" href="view_message_thread.php?thread_id=' . $row['conversation_id'] .'" style="background-color: ' . $color . '">
+                <div class="w-row" href="./view_message_thread.php?thread_id=' . $row['conversation_id'] .'" style="background-color: ' . $color . '">
             <div class="w-col w-col-3">
                 <div>' . $row['fromUser'] . '
                 </div>

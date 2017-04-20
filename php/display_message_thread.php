@@ -42,13 +42,13 @@ ORDER BY Message.timestamp DESC";
                     //display subject and From
                     $flag = 1;
                     echo '<div class="w-container">
-        <h3 class="heading-8">Messages between you and' . $rec . '</h3>
+        <h3 class="heading-8">Messages between you and ' . $rec . '</h3>
     </div>   ';
                 }
                 //display body
                 echo '<label for="replyTxt-1" class="message-label">' . $from . '</label>
 
-        <textarea class="textarea-2 w-input message-box" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-3" readonly style="background-color: ' . $color . '">' . $message . '</textarea>
+        <textarea class="textarea-2 w-input message-box" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="background-color: ' . $color . '">' . $message . '</textarea>
             <label for="replyTxt-1" class="message-date">' . date('m/d/y', strtotime($rowData['timestamp'])) . '</label>';
 
 
@@ -57,7 +57,6 @@ ORDER BY Message.timestamp DESC";
                 if ($read_ind == 0) {
                     $sql = "UPDATE Message SET read_ind='1' WHERE message_id = '$id'";
                     if ($result = mysqli_query($conn, $sql)) {
-                        echo 'message set to read';
                     } else {
                         echo "Error with setting message to read <br>";
                         echo $conn->error;
