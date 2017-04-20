@@ -38,7 +38,7 @@ function displayRow($sql)
 
 echo '<a href="view_data.php?data_id=' . $data_id . '" style="text-decoration: none">
      <div class="w-container" align="center">
-            <h2>' . $title . '  </h2><h4>' . $description . '</h4>
+            <h2 style="color:black">' . $title . '  </h2><h4 style="color:black">' . $description . '</h4>
            </div></a>';
     }
     return;
