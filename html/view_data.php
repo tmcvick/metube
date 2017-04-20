@@ -62,7 +62,7 @@ This video failed to play
         <div class="column-19 w-col w-col-6">
             <?php
                 echo '<a class="button-16 w-button" href="../php/add_favorite.php?data_id=' . $data_id . '" id="favoritesBtn">Add to Favorites</a>';
-                echo '<a class="button-16 w-button" href="add-to-playlist.php?data_id=' . $data_id . '" id="playlistBtn">Add to playlist</a>'
+                echo '<a class="button-16 w-button" href="add-to-playlist.php" id="playlistBtn">Add to playlist</a>'
             ?>
         </div>
     </div>
