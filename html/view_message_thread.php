@@ -20,9 +20,10 @@ include "header.php";
 <div class="form-wrapper-4 w-form">
     <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_message.php" method="post">
         <?php
-            $thread_id = $_REQUEST['thread_id'];
+            $to_id = $_REQUEST['to_id'];
+            $from_id = $_REQUEST['from_id'];
             include "../php/display_message_thread.php";
-            list($rec, $subj) = displayMessageThread($thread_id, $conn);
+            list($rec, $subj) = displayMessageThread($to_id, $from_id, $conn);
         ?>
         <input type="hidden" value="<?= $rec ?>" name="to" id="to">
         <input type="hidden" value="<?= $subj ?>" name="subj" id="subj">

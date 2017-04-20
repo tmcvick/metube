@@ -25,8 +25,8 @@ include "header.php";
     <?php
     $user = $_SESSION['glbl_user']->user_id;
 
-    $sql = "SELECT Message.*, toUser.username as toUser, fromUser.username as fromUser FROM Message INNER JOIN conversation on Message.conversation_id = conversation.conversation_id INNER JOIN user fromUser on conversation.`from` = fromUser.user_id INNER JOIN user toUser on conversation.`to` = toUser.user_id
-    WHERE conversation.to=$user or conversation.from=$user GROUP BY conversation.conversation_id ORDER BY Message.read_ind,  Message.timestamp DESC, conversation.conversation_id";
+    $sql = "SELECT Message.*, toUser.username as toUser, fromUser.username as fromUser FROM Message INNER JOIN user fromUser on Message.`from` = fromUser.user_id INNER JOIN user toUser on Message.`created_by` = toUser.user_id
+WHERE Message.`created_by`=$user or Message.from=$user GROUP BY toUser.username ORDER BY Message.read_ind,  Message.timestamp DESC";
 
     if ($result = mysqli_query($conn, $sql)) {
         if ($result->num_rows == 0) {
@@ -63,7 +63,7 @@ include "header.php";
                     $color = "white";
                 }
                 
-                echo '<a href="http://webapp.cs.clemson.edu/~tmcvick/html/view_message_thread.php?thread_id=' . $row['conversation_id'] .'">
+                echo '<a href="http://webapp.cs.clemson.edu/~tmcvick/html/view_message_thread.php?to_id=' . $row['created_by'] .'&from_id='. $row['from'] .'">
                 <div class="w-row" style="background-color: ' . $color . '">
             <div class="w-col w-col-3">
                 <div>' . $rec . '

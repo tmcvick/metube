@@ -5,7 +5,7 @@
  * Date: 4/13/17
  * Time: 09:10
  */
-function displayMessageThread($thread_id, $conn)
+function displayMessageThread($to_id, $from_id ,$conn)
 {
     include_once "include.php";
     $rec = 0;
@@ -19,8 +19,8 @@ function displayMessageThread($thread_id, $conn)
         $user_id = $_SESSION['glbl_user']->user_id;
         $username = $_SESSION['glbl_user']->username;
 
-        $sql = "SELECT Message.*, toUser.username as toUser, fromUser.username as fromUser, toUser.user_id as toUserId FROM Message INNER JOIN conversation on Message.conversation_id=conversation.conversation_id
-  INNER JOIN user toUser on conversation.to=toUser.user_id INNER JOIN user fromUser on conversation.from=fromUser.user_id WHERE Message.conversation_id ='$thread_id'
+        $sql = "SELECT Message.*, toUser.username as toUser, fromUser.username as fromUser, toUser.user_id as toUserId FROM Message
+  INNER JOIN user toUser on Message.created_by=toUser.user_id INNER JOIN user fromUser on Message.from=fromUser.user_id WHERE Message.created_by=$to_id OR Message.created_by=$from_id
 ORDER BY Message.timestamp DESC";
 
 

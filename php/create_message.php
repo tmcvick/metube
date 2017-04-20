@@ -30,29 +30,14 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         echo $conn->error;
     }
 
-    $sql = "SELECT conversation_id from conversation where (conversation.to = '$user_id' AND conversation.from = '$from') OR (conversation.to = '$from' AND conversation.from = '$user_id'); ";
-    if ($resultconvo = mysqli_query($conn, $sql)) {
-        if ($resultconvo->num_rows > 0) {
-            $convo_id = mysqli_fetch_object($resultconvo)->conversation_id;
-        } else {
-            $sql = "INSERT INTO conversation VALUES (NULL, '$user_id', '$from')";
-            if ($result = mysqli_query($conn, $sql)) {
-                $convo_id = mysqli_insert_id($conn);
-            }   else {
-                echo $conn->error;
-            }
-        }
-            $sql = "INSERT INTO Message (subject,message, read_ind, timestamp, conversation_id) VALUES ('$subj','$msg', '$read', '$created', '$convo_id')";
+    $sql = "INSERT INTO Message (subject,message, read_ind, timestamp, created_by, from) VALUES ('$subj','$msg', '$read', '$created', '$user_id', $from)";
 
-            if ($result = mysqli_query($conn, $sql)) {
-                $message_id = mysqli_insert_id($conn);
-                echo '<script>
+    if ($result = mysqli_query($conn, $sql)) {
+        $message_id = mysqli_insert_id($conn);
+        echo '<script>
 alert("Message sent!");
 window.location.href="../html/messages.php";
 </script>';
-            } else {
-                echo $conn->error;
-            }
     } else {
         echo $conn->error;
     }
