@@ -13,7 +13,7 @@
 
 <?php
 include "header.php";
-$data_id = 0;
+$data_id = $_REQUEST['data_id'];
 ?>
 <body>
 
@@ -49,7 +49,7 @@ $data_id = 0;
                         ?>
                     </select>
                     <?php
-                    echo '<a class="submit-button-8 w-button" href="../php/add_playlist.php?data_id=' . $data_id . '" id="addBtn" type="submit">Add to Playlist</a>'
+                    echo '<a class="submit-button-8 w-button" href="../php/add_to_playlist.php?data_id=' . $data_id . '" id="addBtn" type="submit">Add to Playlist</a>'
                     ?>
                 </div>
             </div>
