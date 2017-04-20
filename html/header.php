@@ -28,40 +28,47 @@
         </div>
     </div>
 </div>
-<div class="navbar w-nav" data-animation="default" data-collapse="medium" data-duration="400">
-    <div class="w-dropdown" data-delay="0" data-hover="1">
-        <div class="w-dropdown-toggle" id="channelDropDown">
-            <div><strong>My Channel</strong>
-            </div>
-            <div class="w-icon-dropdown-toggle"></div>
-        </div>
-        <nav class="w-dropdown-list">
-            <a class="w-dropdown-link" href="my_channel.php"><strong>All Media</strong></a>
-            <?php
-            include_once "../php/include.php";
-            if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-               dieWithError(3);
-            }
+<?php
+include_once "../php/include.php";
+
+if (!isset($GLOBALS["guest"])) {
+         echo '<div class="navbar w-nav" data-animation = "default" data-collapse = "medium" data-duration = "400" >
+        <div class="w-dropdown" data-delay = "0" data-hover = "1" >
+            <div class="w-dropdown-toggle" id = "channelDropDown" >
+                <div ><strong > My Channel </strong >
+                </div >
+                <div class="w-icon-dropdown-toggle" ></div >
+            </div >
+            <nav class="w-dropdown-list" >
+                <a class="w-dropdown-link" href = "my_channel.php" ><strong > All Media </strong ></a >';
+                if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
+                    dieWithError(3);
+                }
 
             echo '<a class="w-dropdown-link" href="browse_videos.php?user_id=' . $_SESSION["glbl_user"]->user_id . '"><strong>Videos</strong></a>';
 
             echo '<a class="w-dropdown-link" href="browse_pictures.php?user_id=' . $_SESSION["glbl_user"]->user_id . '"><strong>Pictures</strong></a>';
             echo '<a class="w-dropdown-link" href="browse_audio.php?user_id=' . $_SESSION["glbl_user"]->user_id . '"><strong>Audio</strong></a>';
 
-            ?>
-            <a class="w-dropdown-link" href="list_playlists.php"><strong>Playlists</strong></a>
+          echo  '<a class="w-dropdown-link" href="list_playlists.php"><strong>Playlists</strong></a>
             <a class="w-dropdown-link" href="browse_favorites.php"><span><strong>Favorites</strong></span></a>
         </nav>
     </div>
     <nav class="w-nav-menu" role="navigation"><a class="w-nav-link" href="view_profile.php" id="profileLink"><strong>My
                 Profile</strong></a>
         <a class="nav-link w-nav-link" href="../php/logout.php"><strong id="logoutLink">Logout</strong></a>
-    </nav>
-    <div class="w-nav-button">
+    </nav>  <div class="w-nav-button">
         <div class="w-icon-nav-menu"></div>
     </div>
     <a class="w-nav-link" href="upload.php" id="uploadLink"><strong>Upload Media</strong></a>
-    <a class="w-nav-link" href="messages.php" id="messagesLink"><strong>Messages</strong></a>
+    <a class="w-nav-link" href="messages.php" id="messagesLink"><strong>Messages</strong></a>';
+     } else {
+            echo '<nav class="w-nav-menu" role="navigation">
+        <a class="nav-link w-nav-link" href="registration.html"><strong id="logoutLink">Register an Account</strong></a>
+    </nav>';
+}
+?>
+
     <div class="w-dropdown" data-delay="0" data-hover="1">
         <div class="w-dropdown-toggle" id="browseDropDown">
             <div><strong>Browse</strong>
@@ -75,4 +82,3 @@
             <a class="w-dropdown-link" href="browse_audio.php"><strong>Audio</strong></a>
         </nav>
     </div>
-</div>

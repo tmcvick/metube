@@ -58,6 +58,12 @@ if (isset($_SESSION['glbl_user'])) {
     <div class="div-block"><a class="button w-button" href="registration.html" id="registerBtn">Register</a>
     </div>
 </div>
+<div class="div-block-8"></div>
+<div class="section">
+    <h4 class="heading-4" id="accountLbl">Want to just browse media?</h4>
+    <div class="div-block"><a class="button w-button" href="browse_all.php?guest=true" id="registerBtn">Proceed as guest</a>
+    </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
 <!-- [if lte IE 9]>
