@@ -52,10 +52,9 @@ WHERE Message.`created_by`=$user or Message.from=$user GROUP BY toUser.username 
             $username = $_SESSION['glbl_user']->username;
 
             while ($row = mysqli_fetch_assoc($result)) {
-                if (in_array($row['fromUser'], $soFar) || in_array($row['toUser'], $soFar)) {
+                if (in_array($row['toUser'], $soFar)) {
                     continue;
                 }
-                array_push($soFar, $row['fromUser']);
                 array_push($soFar, $row['toUser']);
 
                 if ($row['fromUser'] === $username) {
