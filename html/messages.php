@@ -55,7 +55,7 @@ include "header.php";
                     $color = "white";
                 }
                 
-                echo '<div href="http://webapp.cs.clemson.edu/~tmcvick/html/view_message_thread.php?thread_id=' . $row['conversation_id'] .'">
+                echo '<a href="http://webapp.cs.clemson.edu/~tmcvick/html/view_message_thread.php?thread_id=' . $row['conversation_id'] .'">
                 <div class="w-row" style="background-color: ' . $color . '">
             <div class="w-col w-col-3">
                 <div>' . $row['fromUser'] . '
@@ -70,7 +70,7 @@ include "header.php";
                 </div>
             </div>
         </div>
-                </div>';
+                </a>';
             }
         }
     } else {

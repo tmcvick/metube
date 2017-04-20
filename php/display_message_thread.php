@@ -46,10 +46,16 @@ ORDER BY Message.timestamp DESC";
     </div>   ';
                 }
                 //display body
-                echo '<label for="replyTxt-1" class="message-label">' . $from . '</label>
+                echo '<label for="replyTxt-1" style="font-weight: normal;
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-left: -450px;">' . $from . '</label>
 
         <textarea class="message-box textarea-2 w-input" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="background-color: ' . $color . '">' . $message . '</textarea>
-            <label for="replyTxt-1" class="message-date">' . date('m/d/y', strtotime($rowData['timestamp'])) . '</label>';
+            <label for="replyTxt-1" style="font-weight: normal;
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-left: 450px;">' . date('m/d/y', strtotime($rowData['timestamp'])) . '</label>';
 
 
                 $read_ind = $rowData['read_ind'];
