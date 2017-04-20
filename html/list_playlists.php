@@ -41,7 +41,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                     </div>
                   </div>';*/
           //  displayPlaylistRow($rowPlaylist);
-            $title = $sql['name'];
+            $title = $rowPlaylist['name'];
             echo '<br>';
             /*echo json_encode($sql);*/
 
