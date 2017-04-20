@@ -55,7 +55,7 @@ function displayPlaylistRow($sql)
         /*echo json_encode($sql);*/
 
         echo '<a href="view_data.php?data_id=' . $data_id . '" style="text-decoration: none">
-            <div class="w-container" style="padding-left: 40px; padding-top: 0px; padding-bottom: 0px">
+            <div class="w-container" style="padding-left: 40px; margin-top: 0px; margin-bottom: 0px">
             <h3 style="color:#4e2c96">' . $title . '  </h3><h5 style="color:black">' . $description . '</h5>
            </div></a>';
     }
