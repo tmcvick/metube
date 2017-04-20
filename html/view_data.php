@@ -40,7 +40,6 @@ if ($resultData = mysqli_query($conn, $sql))
     </div>';
 }
 
-?>
 <div class="w-container"></div>
 <div class="container-11 w-container">
     <div class="w-row">
@@ -56,15 +55,11 @@ if ($resultData = mysqli_query($conn, $sql))
         <textarea class="textarea-4 w-input" data-name="commentTxt" id="commentTxt" maxlength="5000" name="commentTxt" placeholder="Add comment..."></textarea>
         <input class="submit-button-6 w-button" data-wait="Please wait..." id="commentBtn" type="submit" value="Comment">
     </form>
-    <div class="w-form-done">
-        <div>Thank you! Your submission has been received!</div>
-    </div>
-    <div class="w-form-fail">
-        <div>Oops! Something went wrong while submitting the form</div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="js/webflow.js" type="text/javascript"></script>
 <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+?>
 </body>
 </html>
