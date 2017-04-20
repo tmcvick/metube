@@ -10,6 +10,7 @@ include_once "include.php";
 
 function displayComments($conn)
 {
+    $content = '';
     if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         echo '<script language="javascript">';
         echo 'alert("User not logged in!")';
@@ -44,7 +45,7 @@ function displayComments($conn)
             }
             else {
                 echo '<div class="w-container">
-                    <h4>Your search returned no results.</h4>
+                    <h4>There are no comments for this media.</h4>
                 </div>';
             }
         } else {
