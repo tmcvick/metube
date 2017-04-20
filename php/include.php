@@ -7,6 +7,7 @@
  * Time: 00:03
  */
 
+session_save_path("/home/tmcvick/");
 session_start();
 
 $servername = "mysql1.cs.clemson.edu";
