@@ -19,7 +19,7 @@ $data_id = $_REQUEST['data_id'];
 
 <div class="div-block-28"></div>
 <div class="w-form">
-    <form class="form-10" data-name="Email Form 3" id="email-form-3" name="email-form-3" method="post" action="add_to_playlist.php">
+    <form class="form-10" data-name="Email Form 3" id="email-form-3" name="email-form-3" method="post" action="../php/add_to_playlist.php">
         <input type="hidden" value="<?= $data_id ?>" name="data_id" id="data_id"/>
         <div class="w-container">
             <div class="w-row">
