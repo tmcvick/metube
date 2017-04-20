@@ -61,15 +61,13 @@ if (!isset($GLOBALS["guest"])) {
         <div class="w-icon-nav-menu"></div>
     </div>
     <a class="w-nav-link" href="upload.php" id="uploadLink"><strong>Upload Media</strong></a>
-    <a class="w-nav-link" href="messages.php" id="messagesLink"><strong>Messages</strong></a>
-    </div>';
+    <a class="w-nav-link" href="messages.php" id="messagesLink"><strong>Messages</strong></a>';
      } else {
             echo '<nav class="w-nav-menu" role="navigation">
         <a class="nav-link w-nav-link" href="registration.html"><strong id="logoutLink">Register an Account</strong></a>
     </nav>';
 }
 ?>
-
     <div class="w-dropdown" data-delay="0" data-hover="1">
         <div class="w-dropdown-toggle" id="browseDropDown">
             <div><strong>Browse</strong>
@@ -83,3 +81,4 @@ if (!isset($GLOBALS["guest"])) {
             <a class="w-dropdown-link" href="browse_audio.php"><strong>Audio</strong></a>
         </nav>
     </div>
+</div>
