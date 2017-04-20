@@ -8,14 +8,6 @@
 
 include_once "include.php";
 
-if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-    echo '<script language="javascript">';
-    echo 'alert("User not logged in!")';
-    echo '</script>';
-    header("Location: ../login.php"); /* Redirect browser */
-    exit();
-} else {
-
     $u_id = $_SESSION['glbl_user']->user_id;
     $pl_name = $_REQUEST['pl_name'];
 
@@ -26,7 +18,6 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         header("Location: ../html/list_playlists.php"); /* Redirect browser */
         exit();
     } else {
-        echo $conn->error;
-    }
+        dieWithError(6);
 }
 ?>

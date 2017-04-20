@@ -21,11 +21,6 @@ include "header.php";
     </div>
 </div>
 <?php
-if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-    echo '<script language="javascript">';
-    echo 'alert("User not logged in!")';
-    echo '</script>';
-} else {
     $user = $_SESSION['glbl_user']->user_id;
     $sql = "SELECT * FROM playlist WHERE created_by='$user';";
     if ($resultPlaylist = mysqli_query($conn, $sql)) {
@@ -73,21 +68,19 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                             echo '</div>';
                         }
                     } else {
-                        echo "Error with getting tags <br>";
-                        echo $conn->error;
+                        dieWithError(7);
                     }
                     echo '<br>';
                 }
             } else {
-                echo "Error with getting data <br>";
-                echo $conn->error;
+                dieWithError(7);
+
             }
         }
     } else {
-        echo "Error with getting playlists <br>";
-        echo $conn->error;
+        dieWithError(7);
+
     }
-}
 
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>

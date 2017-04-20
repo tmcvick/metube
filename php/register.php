@@ -24,14 +24,17 @@ $pword2 = $_REQUEST['pword2'];
         $sql = "INSERT INTO user (fname, lname, username, email, security_id, channel_name) VALUES ('$fname', '$lname', '$uname', '$email', '$security_id', '$channel')";
 
         if ($result = mysqli_query($conn, $sql)) {
-            echo 'User id created: ' . mysqli_insert_id($conn);
-
-            header("Location: ../html/login.php"); /* Redirect browser */
-            exit();
+            //echo 'User id created: ' . mysqli_insert_id($conn);
+            ?>
+            <script type="text/javascript">
+                alert("User registered!");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/login.php";
+            </script>
+            <?php
         } else {
-            echo $conn->error;
+            dieWithError(2);
         }
     } else {
-        echo $conn->error;
+        dieWithError(2);
 }
 ?>

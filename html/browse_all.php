@@ -21,11 +21,6 @@ include "header.php";
 
 <?php
 
-if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-    echo '<script language="javascript">';
-    echo 'alert("User not logged in!")';
-    echo '</script>';
-} else {
     $user = $_SESSION['glbl_user']->user_id;
     $sql = "SELECT * FROM data ORDER BY data_id DESC";
     if ($resultData = mysqli_query($conn, $sql)) {
@@ -43,15 +38,12 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                     echo '</div>';
                 }
             } else {
-                echo "Error with getting tags <br>";
-                echo $conn->error;
+                dieWithError(4);
             }
             echo '<br>';
         }
     } else {
-        echo "Error with getting data <br>";
-        echo $conn->error;
-    }
+        dieWithError(4);
 }
 
 ?>

@@ -20,11 +20,6 @@ include "header.php";
 
 <?php
 
-if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-    echo '<script language="javascript">';
-    echo 'alert("User not logged in!")';
-    echo '</script>';
-} else {
     $query = $_REQUEST['keyword'];
 
     $sql = "SELECT data.* FROM data INNER JOIN data_tag on data_tag.data_id = data.data_id INNER JOIN tag on data_tag.tag_id = tag.tag_id WHERE tag.keyword='$query' ORDER BY data_id DESC";
@@ -41,9 +36,8 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         }
     }
     else {
-        echo "Error with getting data <br>";
-        echo $conn->error;
-    }
+        dieWithError(4);
+
 }
 
 ?>

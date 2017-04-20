@@ -24,21 +24,15 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     
     $filename = basename($_FILES["flname"]["name"]);
     $target_file = $dirname . $filename;
-    $uploadOk = 1;
     $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
     if (file_exists($target_file)) {
-        echo '<script>
-        alert("File already exists, exiting upload");
-        window.location.href="../html/my_channel.php";
-        </script>';
+        dieWithError(10);
     }
 
     // Check file size
     if ($_FILES["flname"]["size"] > 50000000) {
-        echo '<script>
-        alert("File is too big, exiting upload");
-        window.location.href="../html/my_channel.php";
-        </script>';
+        dieWithError(11);
     }
 
     if (move_uploaded_file($_FILES["flname"]["tmp_name"], $target_file)) {
@@ -73,34 +67,31 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                         $tgint = mysqli_fetch_object($result)->tag_id;
                     }
                 } else {
-                    echo "Error with selecting from tag <br>";
-                    echo $conn->error;
+                    dieWithError(12);
+
                 }
 
                 //insert a link between the tag and the data
                 $sql = "INSERT INTO data_tag (data_id, tag_id) VALUES ('$lastdtID','$tgint')";
                 if ($result = mysqli_query($conn, $sql)) {
                     $lastID = mysqli_insert_id($conn);
-                    echo 'New tag linked: ' . $lastID . '<br>';
                 } else {
-                    echo "Error with inserting into data_tag table <br>";
-                    echo $conn->error;
+                    dieWithError(12);
+
                 }
             }
             echo '<script>
-alert("Upload successful!");
-window.location.href="../html/my_channel.php";
-</script>';
+                alert("Upload successful!");
+                window.location.href="../html/my_channel.php";
+                </script>';
 
         } else {
-            echo "Error inserting into data table <br>";
-            echo $conn->error;
+            dieWithError(12);
+
         }
     } else {
-        echo '<script>
-        alert("Error uploading file!'. $_FILES['flname']['error'] . '");
-        window.location.href="../html/my_channel.php";
-        </script>';
+        dieWithError(12);
+
     }
 }
 ?>
