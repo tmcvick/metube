@@ -83,7 +83,6 @@ This audio failed to play
             displayComments($conn);
         ?>
 
-<!--<input type="hidden" value="<?= $rec ?>" name="comment" id="comment">-->
 <textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="msg" maxlength="5000" name="comment" placeholder="Add a comment..."></textarea>
 <input class="submit-button-5 w-button" data-wait="Please wait..." id="commentBtn" type="submit" value="Add Comment">
 </form>

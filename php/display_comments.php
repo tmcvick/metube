@@ -36,7 +36,6 @@ function displayComments($conn){
         while ($rowData = mysqli_fetch_assoc($resultData)) {
             $content = $rowData['content'];
             $from_id = $rowData['user_id'];
-            $message = $rowData['message'];
 
             //display body
             echo '<label for="replyTxt-1" style="font-weight: normal;
@@ -44,7 +43,7 @@ function displayComments($conn){
                 margin-bottom: 0;
                 margin-left: -450px;">' . $from_id . '</label>
 
-                <textarea class="message-box textarea-2 w-input" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="background-color: cornflowerblue;">' . content . '</textarea>';
+                <textarea class="message-box textarea-2 w-input" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="background-color: cornflowerblue;">' . $content . '</textarea>';
         }
     } else {
         dieWithError(8);
