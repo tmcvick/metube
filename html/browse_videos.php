@@ -14,9 +14,6 @@
 <?php
 include "header.php";
 ?>
-<div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
-    <h1>Videos</h1>
-</div>
 
 <?php
 if (isset($_REQUEST['user_id'])) {
