@@ -1,18 +1,18 @@
-.message-label {
+label.message-label {
   font-weight: normal;
   font-size: 12px;
   margin-bottom: 0;
   margin-left: -450px;
 }
 
-.message-date {
+label.message-date {
   font-weight: normal;
   font-size: 12px;
   margin-top: 0;
   margin-left: 450px;
 }
 
-.message-box {
+textarea.message-box {
   margin-bottom: 0;
 }
 

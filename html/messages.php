@@ -55,8 +55,8 @@ include "header.php";
                     $color = "white";
                 }
                 
-                echo '
-                <div class="w-row" href="http://webapp.cs.clemson.edu/~tmcvick/html/view_message_thread.php?thread_id=' . $row['conversation_id'] .'" style="background-color: ' . $color . '">
+                echo '<div href="http://webapp.cs.clemson.edu/~tmcvick/html/view_message_thread.php?thread_id=' . $row['conversation_id'] .'">
+                <div class="w-row" style="background-color: ' . $color . '">
             <div class="w-col w-col-3">
                 <div>' . $row['fromUser'] . '
                 </div>
@@ -69,7 +69,8 @@ include "header.php";
                 <div>' . date( 'm/d/y', strtotime($row['timestamp'])) .'
                 </div>
             </div>
-        </div>';
+        </div>
+                </div>';
             }
         }
     } else {
