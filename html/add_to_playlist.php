@@ -50,9 +50,8 @@ $data_id = 0;
         </div>
         <div class="div-block-29"></div>
         <div class="container-10 w-container">
-            selected = field.text;
             <?php
-                $title = selected;
+                $title = field.text;
                 echo '$title';
           /*      $sql = "SELECT playlist_id FROM playlist WHERE name = '$title'";
                 if ($result = mysqli_query($conn, $sql)) {
