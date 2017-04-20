@@ -25,7 +25,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         $user_rowData = mysqli_fetch_assoc($user_resultData);
         $channel_name = $user_rowData['channel_name'];
         echo '<div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
-            <h1>' . $channel_name . 's Media"</h1>
+            <h1>' . $channel_name . 's Media</h1>
         </div>';
     } else {
         echo "Error with getting data <br>";
