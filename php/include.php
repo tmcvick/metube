@@ -31,6 +31,7 @@ function displayRow($sql)
     {
         //this is a data object
         $title = $sql['title'];
+        $data_id = $sql['data_id'];
         $description = $sql['description'];
         echo '<br>';
         /*echo json_encode($sql);*/
@@ -38,7 +39,9 @@ function displayRow($sql)
 
             <input class="text-field-6 w-input" data-name="title" id="title" maxlength="256" name="pword"
                    value="' . $title . '" type="text">
-            <input type="hidden" value="<?= $id ?>" name="id" id="id">
+             <input class="text-field-6 w-input" data-name="title" id="title" maxlength="256" name="pword"
+                   value="' . $description . '" type="text">
+            <input type="hidden" value="' . $data_id . '" name="id" id="id">
            </div>';
     }
     return;
