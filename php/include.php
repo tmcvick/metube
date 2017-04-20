@@ -25,7 +25,7 @@ function displayRow($sql)
 {
     if (isset($sql['keyword'])) {
         //this is a tag
-        echo '<div class="w-container">' . $sql['keyword'] . ' &nbsp</div>';
+        echo $sql['keyword'] . ' &nbsp';
     }
     else
     {
