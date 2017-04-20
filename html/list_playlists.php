@@ -38,8 +38,9 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                         </div>
                     </div>
                   </div>';
-            displayRow($rowPlaylist);
-
+     //       displayRow($rowPlaylist);
+            // TODO
+            echo json_encode($rowPlaylist);
             $sql = "SELECT user.username, data.* FROM data INNER JOIN user on data.user_id = user.user_id INNER JOIN playlist_data on data.data_id=playlist_data.data_id where playlist_data.playlist_id='$p_id';";
             if ($resultData = mysqli_query($conn, $sql)) {
                 while ($rowData = mysqli_fetch_assoc($resultData)) {

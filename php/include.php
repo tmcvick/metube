@@ -26,7 +26,11 @@ function displayRow($sql)
     if (isset($sql['keyword'])) {
         //this is a tag
         echo " tag keyword: " . $sql['keyword'];
-    } else {
+    } else if (isset($sql['title'])) {
+       echo '<div class="w-col w-col-6"><a class="link-3" href="#" id="titleTxt">' . $sql["title"] . '</a>';
+    }
+    else
+    {
         //this is a data object
         echo '<br>';
         echo json_encode($sql);
