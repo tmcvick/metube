@@ -35,7 +35,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     }
 
     // Check file size
-    if ($_FILES["flname"]["size"] > 10485760) {
+    if ($_FILES["flname"]["size"] > 50000000) {
         echo '<script>
         alert("File is too big, exiting upload");
         window.location.href="../html/my_channel.php";
@@ -96,7 +96,10 @@ window.location.href="../html/my_channel.php";
             echo $conn->error;
         }
     } else {
-        print_r($_FILES);
+        echo '<script>
+        alert("Error uploading file!'. $_FILES['flname']['error'] . '");
+        window.location.href="../html/my_channel.php";
+        </script>';
     }
 }
 ?>

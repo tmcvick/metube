@@ -24,8 +24,8 @@ include "header.php";
         <input class="text-field-9 w-input" data-name="taglist" id="taglist" maxlength="1000" name="taglist" placeholder="Enter the keywords, separated by commas" required="required" type="text">
         <label for="descriptionTxt" id="descriptionLbl">Description</label>
         <textarea class="textarea w-input" id="desc" maxlength="5000" name="desc" required placeholder="Add a short description of the media"></textarea>
-        <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-        <label for="flname" style="color:#663399"><em> Add a Data Item: (Each file limit 10M)</em></label><br/>
+        <input type="hidden" name="MAX_FILE_SIZE" value="50000000" />
+        <label for="flname" style="color:#663399"><em> Add a Data Item: (Each file limit 50M)</em></label><br/>
         <input required class="text-field-9 w-input" name="flname" id="flname" type="file"/>
 
         <input class="submit-button-4 w-button" data-wait="Please wait..." id="uploadBtn" type="submit" value="Upload">
