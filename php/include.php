@@ -39,8 +39,7 @@ function displayRow($sql)
             <div class="w-col w-col-6"><a class="link-2" href="view_data.php?data_id=' . $data_id . '"id="title" style="font-size: 30px">' . $title . '  </a>
              <input class="textarea" data-name="title" id="title" maxlength="256" name="pword"
                    value="' . $description . '" type="text" >
-           </div>
-           </div><div class="w-container"> <strong>Keywords: </strong> </div>';
+           </div></div>';
     }
     return;
 }
