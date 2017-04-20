@@ -78,7 +78,7 @@ This audio failed to play
 </div>
 <div class="form-wrapper-4 w-form">
     <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_comment.php" method="post">
-        <h3 align="center" style="color: orange">Comments</h3>
+        <h3 align="center" style="color:#ff5c00">Comments</h3>
         <?php
             include "../php/display_comments.php";
             $content = displayComments($conn);
