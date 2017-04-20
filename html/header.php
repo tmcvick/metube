@@ -66,7 +66,7 @@ if (!isset($GLOBALS["guest"]) && !isset($_SESSION['guest'])) {
     $GLOBALS["guest"] = 1;
     $_SESSION['guest'] = 1;
     echo '<div class="navbar w-nav" data-animation = "default" data-collapse = "medium" data-duration = "400" > <nav class="w-nav-menu" role="navigation">
-        <a class="nav-link w-nav-link" href="login.php"><strong id="logoutLink">Back to Login Page</strong></a>
+        <a class="nav-link w-nav-link" href="../php/logout.php"><strong id="logoutLink">Back to Login Page</strong></a>
     </nav>';
 }
 ?>
