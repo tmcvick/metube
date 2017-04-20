@@ -77,19 +77,13 @@ This audio failed to play
     </div>
 </div>
 <div class="form-wrapper-4 w-form">
-    <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_message.php" method="post">
+    <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_comment.php" method="post">
         <?php
-        //show_source("../php/display_comments.php?data_id=" . $data_id);
-        /*
-            $to_id = $_REQUEST['to_id'];
-            $from_id = $_REQUEST['from_id'];
-            include "../php/display_message_thread.php";
-            list($rec, $subj) = displayMessageThread($to_id, $from_id, $conn);*/
+            include "../php/display_comments.php";
+            displayComments($conn);
         ?>
-        ?>
-<a id="bottom"></a>
-<input type="hidden" value="<?= $rec ?>" name="to" id="to">
-<input type="hidden" value="<?= $subj ?>" name="subj" id="subj">
+
+<!--<input type="hidden" value="<?= $rec ?>" name="comment" id="comment">-->
 <textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="msg" maxlength="5000" name="comment" placeholder="Add a comment..."></textarea>
 <input class="submit-button-5 w-button" data-wait="Please wait..." id="commentBtn" type="submit" value="Add Comment">
 </form>
