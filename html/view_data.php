@@ -13,9 +13,21 @@
 <body>
 <?php
 include "header.php";
+$data_id = $_REQUEST['data_id'];
+$sql = "SELECT * FROM data WHERE data_id = '$data_id'";
+if ($resultData = mysqli_query($conn, $sql))
+{
+    $rowData = mysqli_fetch_assoc($resultData);
+    $title = $rowData['title'];
+    echo '<div class="w-container">
+    <h1>' . $title. '</h1>
+    </div>';
+}
+
 ?>
+
 <div class="w-container">
-    <h1>Media Title</h1>
+    <h1>$title</h1>
 </div>
 <div class="w-container"></div>
 <div class="container-11 w-container">
