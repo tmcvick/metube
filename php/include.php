@@ -52,7 +52,6 @@ function displayPlaylistRow($sql)
         $title = $sql['title'];
         $data_id = $sql['data_id'];
         $description = $sql['description'];
-        echo '<br>';
         /*echo json_encode($sql);*/
 
         echo '<a href="view_data.php?data_id=' . $data_id . '" style="text-decoration: none">
