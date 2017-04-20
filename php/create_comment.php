@@ -26,7 +26,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         ?>
         <script type="text/javascript">
             alert("Comment created!");
-            window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/view_data.php?data_id=" . data_id;
+            window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/view_data.php?data_id=" . '$data_id';
         </script>
 
         <?php
