@@ -13,6 +13,7 @@
 
 <?php
 include "header.php";
+$data_id = 0;
 ?>
 <body>
 
@@ -42,10 +43,6 @@ include "header.php";
                                 }
                             }
                         }
-
-/*
-                        <option value = "Second" > Second Choice </option >
-                        <option value = "Third" > Third Choice </option >*/
                         ?>
                     </select>
                 </div>
@@ -53,16 +50,20 @@ include "header.php";
         </div>
         <div class="div-block-29"></div>
         <div class="container-10 w-container">
-            <input class="submit-button-8 w-button" data-wait="Please wait..." id="addBtn" type="submit"
-                   value="Add to Playlist"><a class="button-13 w-button" href="channel.html" id="cancelBtn">Cancel</a>
+            selected = field.text;
+            <?php
+                $title = selected;
+                echo '$title';
+          /*      $sql = "SELECT playlist_id FROM playlist WHERE name = '$title'";
+                if ($result = mysqli_query($conn, $sql)) {
+                    $rowData = mysqli_fetch_assoc($result);
+                    $pl_id = $rowData['playlist_id'];
+                    echo '<a class="submit-button-8 w-button" href="../php/add_playlist.php?data_id=' . $data_id . '?pl_id=' . $pl_id .'" id="addBtn" type="submit" value="Add to Playlist"></a>';
+                }*/
+            ?>
+            <a class="button-13 w-button" href="channel.html" id="cancelBtn">Cancel</a>
         </div>
     </form>
-    <div class="w-form-done">
-        <div>Thank you! Your submission has been received!</div>
-    </div>
-    <div class="w-form-fail">
-        <div>Oops! Something went wrong while submitting the form</div>
-    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
