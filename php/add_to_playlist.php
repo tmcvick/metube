@@ -17,7 +17,12 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 } else {
 
     $data_id = $_REQUEST['data_id'];
-    $pl_id = $_REQUEST['pl_id'];
+    $play_sql = "SELECT playlist_id FROM playlist WHERE name = '$title'";
+    if ($result = mysqli_query($conn, $sql)) {
+        $rowData = mysqli_fetch_assoc($result);
+        $pl_id = $rowData['playlist_id'];
+    }
+ //   $pl_id = $_REQUEST['pl_id'];
 
     $sql = "INSERT INTO playlist_data (data_id,playlist_id) VALUES ('$data_id','$pl_id')";
 
