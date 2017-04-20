@@ -28,11 +28,13 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     if (file_exists($target_file)) {
         dieWithError(10);
+        exit();
     }
 
     // Check file size
     if ($_FILES["flname"]["size"] > 50000000) {
         dieWithError(11);
+        exit();
     }
 
     if (move_uploaded_file($_FILES["flname"]["tmp_name"], $target_file)) {
