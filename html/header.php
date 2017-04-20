@@ -61,7 +61,8 @@ if (!isset($GLOBALS["guest"])) {
         <div class="w-icon-nav-menu"></div>
     </div>
     <a class="w-nav-link" href="upload.php" id="uploadLink"><strong>Upload Media</strong></a>
-    <a class="w-nav-link" href="messages.php" id="messagesLink"><strong>Messages</strong></a>';
+    <a class="w-nav-link" href="messages.php" id="messagesLink"><strong>Messages</strong></a>
+    </div>';
      } else {
             echo '<nav class="w-nav-menu" role="navigation">
         <a class="nav-link w-nav-link" href="registration.html"><strong id="logoutLink">Register an Account</strong></a>
