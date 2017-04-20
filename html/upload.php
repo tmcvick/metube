@@ -25,7 +25,7 @@ include "header.php";
         <label for="descriptionTxt" id="descriptionLbl">Description</label>
         <textarea class="textarea w-input" id="desc" maxlength="5000" name="desc" required placeholder="Add a short description of the media"></textarea>
         <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-        Add a Media: <label style="color:#663399"><em> (Each file limit 10M)</em></label><br/>
+        <label for="flname" style="color:#663399"><em> Add a Data Item: (Each file limit 10M)</em></label><br/>
         <input required name="flname" id="flname" type="file" size="50" />
 
         <input class="submit-button-4 w-button" data-wait="Please wait..." id="uploadBtn" type="submit" value="Upload">

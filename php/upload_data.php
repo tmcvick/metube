@@ -22,6 +22,8 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $taglist = $_REQUEST['taglist'];
     $u_id = $_SESSION['glbl_user']->user_id;
 
+    $flname = "/home/tmcvick/uploads" . $flname;
+
     /* Insert data */
     $sql = "INSERT INTO data (type,filename,description,title,user_id) VALUES ('$dtype', '$flname', '$desc','$title','$u_id')";
 
