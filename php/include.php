@@ -38,7 +38,7 @@ function displayRow($sql)
        echo '<div class="w-container">
             <div class="w-col w-col-6"><a class="link-3" href="view_data.php?data_id=' . $data_id . '"id="playlistTitleTxt">' . $title . '</a>
              <input class="text-field-6 w-input" data-name="title" id="title" maxlength="256" name="pword"
-                   value="' . $description . '" type="text">
+                   value="' . $description . '" type="text" style="font-size: 40pt">
             <input type="hidden" value="' . $data_id . '" name="id" id="id">
            </div>
            </div>';
