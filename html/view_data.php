@@ -25,10 +25,6 @@ if ($resultData = mysqli_query($conn, $sql))
 }
 
 ?>
-
-<div class="w-container">
-    <h1>$title</h1>
-</div>
 <div class="w-container"></div>
 <div class="container-11 w-container">
     <div class="w-row">
