@@ -20,7 +20,7 @@ include "header.php";
 <div class="form-wrapper-4 w-form">
     <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_message.php" method="post">
         <?php
-        show_source("../php/display_comments.php");
+        show_source("../php/display_comments.php?data_id=" . $data_id);
         /*
             $to_id = $_REQUEST['to_id'];
             $from_id = $_REQUEST['from_id'];
