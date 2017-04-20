@@ -25,7 +25,7 @@ function displayRow($sql)
 {
     if (isset($sql['keyword'])) {
         //this is a tag
-        echo " tag keyword: " . $sql['keyword'];
+        echo '<div class="w-container">' . $sql['keyword'] . ' </div>';
     }
     else
     {
@@ -36,12 +36,11 @@ function displayRow($sql)
         echo '<br>';
         /*echo json_encode($sql);*/
        echo '<div class="w-container">
-            <div class="w-col w-col-6"><a class="link-3" href="view_data.php?data_id=' . $data_id . '"id="playlistTitleTxt">' . $title . '</a>
-             <input class="text-field-6 w-input" data-name="title" id="title" maxlength="256" name="pword"
-                   value="' . $description . '" type="text" style="font-size: 40pt">
-            <input type="hidden" value="' . $data_id . '" name="id" id="id">
+            <div class="w-col w-col-6"><a class="link-2" href="view_data.php?data_id=' . $data_id . '"id="title" style="font-size: 30px">' . $title . '  </a>
+             <input class="textarea" data-name="title" id="title" maxlength="256" name="pword"
+                   value="' . $description . '" type="text" >
            </div>
-           </div>';
+           </div><div class="w-container"> <strong>Keywords</strong> </div>';
     }
     return;
 }
