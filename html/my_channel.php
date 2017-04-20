@@ -13,6 +13,11 @@
 
 <?php
 include "header.php";
+?>
+<div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
+    <h1>My Media</h1>
+</div>;
+<?php
 
 if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     echo '<script language="javascript">';
@@ -20,17 +25,6 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     echo '</script>';
 } else {
     $user = $_SESSION['glbl_user']->user_id;
-    $user_sql = "SELECT * FROM user WHERE user_id = '$user'";
-    if ($user_resultData = mysqli_query($conn, $user_sql)) {
-        $user_rowData = mysqli_fetch_assoc($user_resultData);
-        $channel_name = $user_rowData['channel_name'];
-        echo '<div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
-            <h1>' . $channel_name . '\'s Media</h1>
-        </div>';
-    } else {
-        echo "Error with getting data <br>";
-        echo $conn->error;
-    }
     $sql = "SELECT * FROM data WHERE user_id = '$user' ORDER BY data_id DESC";
     if ($resultData = mysqli_query($conn, $sql))
         //echo json_encode($resultData);
@@ -40,7 +34,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
             $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
             if ($resultTag = mysqli_query($conn, $sql)) {
                 if ($resultTag->num_rows != 0) {
-                    echo '<div class="w-container" style="padding:10px" align="center"><strong>Keywords: &nbsp</strong>';
+                    echo '<div class="w-container"><strong>Keywords: &nbsp</strong>';
                     while ($rowTag = mysqli_fetch_assoc($resultTag)) {
                         displayRow($rowTag);
                     }
