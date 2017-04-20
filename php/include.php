@@ -62,4 +62,103 @@ function displayPlaylistRow($sql)
     return;
 }
 
+function dieWithError($errorNo) {
+    switch ($errorNo){
+        case 1:
+            ?>
+            <script type="text/javascript">
+                alert("Login failed!");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/login.php";
+            </script>
+            <?php
+        case 2:
+            ?>
+            <script type="text/javascript">
+                alert("Failed to register user!");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/registration.html";
+            </script>
+            <?php
+        case 3:
+            ?>
+            <script type="text/javascript">
+                alert("User is not logged in!");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/login.php";
+            </script>
+            <?php
+        case 4:
+            //getting data
+            ?>
+            <script type="text/javascript">
+                alert("Error getting data, exiting to homepage");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/my_channel.php";
+            </script>
+            <?php
+        case 5:
+            //sending msg
+            ?>
+            <script type="text/javascript">
+                alert("Error while sending message: Message not sent");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/messages.php";
+            </script>
+            <?php
+        case 6:
+            //creating playlist
+            ?>
+            <script type="text/javascript">
+                alert("Cannot create playlist!");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/create_playlist.php";
+            </script>
+            <?php
+        case 7:
+            //getting playlist
+            ?>
+            <script type="text/javascript">
+                alert("Cannot load playlists! Exiting to homepage");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/my_channel.php";
+            </script>
+            <?php
+        case 8:
+            //loading messages
+            ?>
+            <script type="text/javascript">
+                alert("Cannot load messages! Exiting to homepage");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/my_channel.php";
+            </script>
+            <?php
+        case 9:
+            //updating user
+            ?>
+            <script type="text/javascript">
+                alert("Error while updating user!");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/view_profile.php";
+            </script>
+            <?php
+        case 10:
+            //file exists
+            ?>
+            <script type="text/javascript">
+                alert("Error while uploading file: file already exists!");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/upload.php";
+            </script>
+            <?php
+        case 11:
+            //file too big
+            ?>
+            <script type="text/javascript">
+                alert("Error while uploading file: file exceeds the maximum file size!");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/upload.php";
+            </script>
+            <?php
+        case 12:
+            //upload sql
+            ?>
+            <script type="text/javascript">
+                alert("Error while uploading file!");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/upload.php";
+            </script>
+            <?php
+        
+    }
+}
+
 ?>

@@ -24,10 +24,6 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     
     $filename = basename($_FILES["flname"]["name"]);
     $target_file = $dirname . $filename;
-    echo '<script>
-    alert("' . json_encode($_FILES).'");
-        window.location.href="../html/upload.php";
-        </script>';
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
     if (file_exists($target_file)) {
