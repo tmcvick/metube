@@ -50,6 +50,15 @@ This video failed to play
     if ($rowData['type'] == "picture") {
         echo '<div style="margin-top: 20px; margin-bottom: 20px" align="center"><img width="320" src="/~tmcvick/uploads/' . $rowData['filename'] . '"/></div>';
     }
+
+    if($rowData['type'] == "audio") {
+        echo '<div style="margin-top: 20px; margin-bottom: 20px" align="center">
+                          <audio controls>
+<source type="audio/mpeg" src="/~tmcvick/uploads/' . $rowData['filename'] . '">
+This audio failed to play
+</audio>
+</div>';
+    }
 }
 
 ?>
