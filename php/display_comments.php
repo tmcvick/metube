@@ -36,8 +36,7 @@ function displayComments($conn)
                 //display body
                 echo '<label for="replyTxt-1" style="font-weight: normal;
                 font-size: 12px;
-                margin-bottom: 0;
-                margin-left: -450px;">Posted by&nbsp' . $from . '</label>
+                margin-bottom: 0;">Posted by&nbsp' . $from . '</label>
 
                 <textarea class="message-box textarea-2 w-input" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="background-color: cornflowerblue;">' . $content . '</textarea>';
             }
