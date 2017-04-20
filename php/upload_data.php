@@ -22,6 +22,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     $dirname = "/home/tmcvick/uploads/";
     $target_file = $dirname . basename($_FILES["flname"]["name"]);
+    echo json_encode($_FILES);
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
     if (file_exists($target_file)) {
