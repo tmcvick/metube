@@ -46,7 +46,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
             /*echo json_encode($sql);*/
 
             echo '<div class="w-container">
-                <div class="w-row">
+                <div class="w-row" style="margin-top: 0">
                         <div class="w-col w-col-6" style="margin-top:0px"><h1>' . $title . '</h1>
                         </div>
                         <div class="w-col w-col-6" style="padding:15px"><a href="../php/remove_playlist.php?pl_id=' . $p_id . '"><img  class="image-2" id="removeImg" sizes="20px" src="../images/milker-X-icon.png" srcset="../images/milker-X-icon-p-500.png 500w, ../images/milker-X-icon-p-800.png 800w, ../images/milker-X-icon.png 2400w" width="20"></a>
