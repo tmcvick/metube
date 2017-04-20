@@ -32,14 +32,12 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
             $data_id = $rowData['data_id'];
             $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
             if ($resultTag = mysqli_query($conn, $sql)) {
-                while ($rowTag = mysqli_fetch_assoc($resultTag)) {
-                    if(isset($resultTag)) {
-                        echo '<div class="w-container"><strong>Keywords: &nbsp</strong>';
-                        while ($rowTag = mysqli_fetch_assoc($resultTag)) {
-                            displayRow($rowTag);
-                        }
-                        echo '</div>';
+                if(isset($resultTag)) {
+                    echo '<div class="w-container"><strong>Keywords: &nbsp</strong>';
+                    while ($rowTag = mysqli_fetch_assoc($resultTag)) {
+                        displayRow($rowTag);
                     }
+                    echo '</div>';
                 }
             } else {
                 echo "Error with getting tags <br>";
