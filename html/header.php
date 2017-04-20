@@ -31,7 +31,7 @@
 <?php
 include_once "../php/include.php";
 
-if (!isset($GLOBALS["guest"])) {
+if (!isset($GLOBALS["guest"]) && !isset($_SESSION['guest'])) {
          echo '<div class="navbar w-nav" data-animation = "default" data-collapse = "medium" data-duration = "400" >
         <div class="w-dropdown" data-delay = "0" data-hover = "1" >
             <div class="w-dropdown-toggle" id = "channelDropDown" >
@@ -62,10 +62,9 @@ if (!isset($GLOBALS["guest"])) {
     </div>
     <a class="w-nav-link" href="upload.php" id="uploadLink"><strong>Upload Media</strong></a>
     <a class="w-nav-link" href="messages.php" id="messagesLink"><strong>Messages</strong></a>';
-          $flag="";
      } else {
     $GLOBALS["guest"] = 1;
-    $flag = "?guest=true";
+    $_SESSION['guest'] = 1;
     echo '<div class="navbar w-nav" data-animation = "default" data-collapse = "medium" data-duration = "400" > <nav class="w-nav-menu" role="navigation">
         <a class="nav-link w-nav-link" href="login.php"><strong id="logoutLink">Back to Login Page</strong></a>
     </nav>';
@@ -77,7 +76,7 @@ if (!isset($GLOBALS["guest"])) {
             </div>
             <div class="w-icon-dropdown-toggle"></div>
         </div>
-        <nav class="w-dropdown-list"><a class="dropdown-link w-dropdown-link" href="browse_all.php<?=$flag?>"><strong>All
+        <nav class="w-dropdown-list"><a class="dropdown-link w-dropdown-link" href="browse_all.php"><strong>All
                     Media</strong></a>
             <a class="w-dropdown-link" href="browse_videos.php"><strong>Videos</strong></a>
             <a class="w-dropdown-link" href="browse_pictures.php"><strong>Pictures</strong></a>
