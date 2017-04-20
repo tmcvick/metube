@@ -19,14 +19,15 @@ $data_id = $_REQUEST['data_id'];
 
 <div class="div-block-28"></div>
 <div class="w-form">
-    <form class="form-10" data-name="Email Form 3" id="email-form-3" name="email-form-3" method="post">
+    <form class="form-10" data-name="Email Form 3" id="email-form-3" name="email-form-3" method="post" action="add_to_playlist.php">
+        <input type="hidden" value="<?= $data_id ?>" name="data_id" id="data_id"/>
         <div class="w-container">
             <div class="w-row">
                 <div class="column-15 w-col w-col-6">
                     <label class="field-label-9" for="field">Select Playlist to add the media to:</label>
                 </div>
                 <div class="column-16 w-col w-col-6">
-                    <select class="select-field w-select" id="field" name="field">
+                    <select class="select-field w-select" id="pl_id" name="pl_id">
                         <option value="">Select a playlist...</option>
                         <?php
                             $user = $_SESSION['glbl_user']->user_id;
@@ -34,7 +35,8 @@ $data_id = $_REQUEST['data_id'];
                             if ($resultPlaylist = mysqli_query($conn, $sql)) {
                                 while ($rowPlaylist = mysqli_fetch_assoc($resultPlaylist)) {
                                     $title = $rowPlaylist['name'];
-                                    echo '<option value = "Choice" > ' . $title . '</option >';
+                                    $id = $rowPlaylist['playlist_id'];
+                                    echo '<option value = "'. $id .'" > ' . $title . '</option >';
                                 }
                             }
                             else{
@@ -42,33 +44,17 @@ $data_id = $_REQUEST['data_id'];
                             }
                         ?>
                     </select>
-                    <?php
-                    echo '<a class="submit-button-8 w-button" onClick = "getValue()" href="../php/add_to_playlist.php?data_id=' . $data_id . '" id="addBtn" type="submit">Add to Playlist</a>'
-                    ?>
+                    <a class="submit-button-8 w-button" id="addBtn" type="submit">Add to Playlist</a>'
+
                 </div>
             </div>
         </div>
         <div class="div-block-29"></div>
         <div class="container-10 w-container">
-            <?php
-        //    href="../php/add_playlist.php?data_id=' . $data_id . '?pl_id=' . $pl_id .'"
-                if ( isset( $_POST['submit'] ) ) {
-                    //is submitted
-                    $title = $_POST['field'];
-                    echo '$title';
-
-                }
-
-            ?>
-            <a class="button-13 w-button" href="channel.html" id="cancelBtn">Cancel</a>
+            <a class="button-13 w-button" href="my_channel.php" id="cancelBtn">Cancel</a>
         </div>
     </form>
 </div>
-<script>
-    function getValue() {
-        return document.getElementById("field").value;
-    }
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
 <!-- [if lte IE 9]>
