@@ -13,7 +13,9 @@
 <?php
 include "header.php";
 ?>
-<h1>Playlists</h1>
+<div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
+    <h1>My Playlists</h1>
+</div>
 <div class="w-container">
     <div><a class="button-7 w-button" href="create_playlist.php" id="createBtn">Create New Playlist</a>
     </div>

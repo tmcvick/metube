@@ -15,7 +15,9 @@
 <?php
 include "header.php";
 ?>
-<h1>Browse All Media</h1>
+<div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
+    <h1>Browse All Media</h1>
+</div>
 
 <?php
 
