@@ -26,7 +26,7 @@ include "header.php";
         <textarea class="textarea w-input" id="desc" maxlength="5000" name="desc" required placeholder="Add a short description of the media"></textarea>
         <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
         <label for="flname" style="color:#663399"><em> Add a Data Item: (Each file limit 10M)</em></label><br/>
-        <input required class="text-field-9 w-input" name="flname" id="flname" type="file" size="50" />
+        <input required class="text-field-9 w-input" name="flname" id="flname" type="file"/>
 
         <input class="submit-button-4 w-button" data-wait="Please wait..." id="uploadBtn" type="submit" value="Upload">
     </form>

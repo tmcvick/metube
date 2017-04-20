@@ -13,7 +13,6 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     exit();
 } else {
 
-    $flname = $_REQUEST['flname'];
     $dtype = $_REQUEST['dtype'];
     $desc = $_REQUEST['desc'];
     $title = $_REQUEST['title'];
@@ -36,7 +35,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     }
 
     // Check file size
-    if ($_FILES["flname"]["size"] > 500000000) {
+    if ($_FILES["flname"]["size"] > 10485760) {
         echo '<script>
         alert("File is too big, exiting upload");
         window.location.href="../html/my_channel.php";
@@ -97,10 +96,7 @@ window.location.href="../html/my_channel.php";
             echo $conn->error;
         }
     } else {
-        echo '<script>
-        alert("' . json_encode($_FILES).'");
-        window.location.href="../html/my_channel.php";
-        </script>';
+        print_r($_FILES);
     }
 }
 ?>
