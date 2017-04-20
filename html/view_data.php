@@ -88,16 +88,6 @@ This audio failed to play
 </form>
 </div>
 
-<div class="div-block-32"></div>
-<div class="form-wrapper-3 w-form">
-    <form class="form-8" data-name="Comment" id="wf-form-Comment" name="wf-form-Comment">
-        <textarea class="textarea-4 w-input" data-name="commentTxt" id="commentTxt" maxlength="5000" name="commentTxt"
-                  placeholder="Add comment..."></textarea>
-        <input class="submit-button-6 w-button" data-wait="Please wait..." id="commentBtn" type="submit"
-               value="Comment">
-    </form>
-</div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
 
