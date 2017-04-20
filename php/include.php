@@ -36,7 +36,7 @@ function displayRow($sql)
         echo '<br>';
         /*echo json_encode($sql);*/
        echo '<div class="w-container">
-            <div class="w-col w-col-6"><a class="link-3" href="#" id="playlistTitleTxt">' . $title . '</a>
+            <div class="w-col w-col-6"><a class="link-3" href="view_data.php?data_id=' . $data_id . '"id="playlistTitleTxt">' . $title . '</a>
             <input class="text-field-6 w-input" data-name="title" id="title" maxlength="256" name="pword"
                    value="' . $title . '" type="text">
              <input class="text-field-6 w-input" data-name="title" id="title" maxlength="256" name="pword"
