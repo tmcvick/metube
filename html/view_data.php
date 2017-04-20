@@ -10,7 +10,7 @@
     include "meta.php";
     ?>
 </head>
-<body>
+
 <?php
 include "header.php";
 $data_id = $_REQUEST['data_id'];
@@ -40,7 +40,8 @@ if ($resultData = mysqli_query($conn, $sql))
     </div>';
 }
 
-echo '<div class="w-container"></div>
+?>
+<div class="w-container"></div>
 <div class="container-11 w-container">
     <div class="w-row">
         <div class="column-18 w-col w-col-6"><a class="button-14 w-button" href="#" id="downloadBtn">Download</a>
@@ -56,8 +57,8 @@ echo '<div class="w-container"></div>
         <input class="submit-button-6 w-button" data-wait="Please wait..." id="commentBtn" type="submit" value="Comment">
     </form>
     </div>
-</div>'
-?>
+</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="js/webflow.js" type="text/javascript"></script>
 
