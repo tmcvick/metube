@@ -56,12 +56,12 @@ if ($resultData = mysqli_query($conn, $sql))
 </object> ';
     }
     if($rowData['type'] == "picture") {
-        echo '<img width="50%" height="50%" src="/~tmcvick/uploads/' . $rowData['filename'] . '"/>';
+        echo '<div class="w-container"> <img width="50%" height="33%" src="/~tmcvick/uploads/' . $rowData['filename'] . '"/>';
     }
 }
 
 ?>
-<div class="w-container"></div>
+</div>
 <div class="container-11 w-container">
     <div class="w-row">
         <div class="column-18 w-col w-col-6"><a class="button-14 w-button" href="<?= "/~tmcvick/uploads/" . $rowData['filename'] ?>" id="downloadBtn" download>Download</a>
