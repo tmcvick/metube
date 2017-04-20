@@ -35,23 +35,31 @@ if (isset($_REQUEST['user_id'])) {
 
 if ($resultData = mysqli_query($conn, $sql)) {
     //echo json_encode($resultData);
-    while ($rowData = mysqli_fetch_assoc($resultData)) {
-        displayRow($rowData);
-        $data_id = $rowData['data_id'];
-        $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
-        if ($resultTag = mysqli_query($conn, $sql)) {
-            if($resultTag->num_rows != 0) {
-                echo '<div class="w-container"><strong>Keywords: &nbsp</strong>';
-                while ($rowTag = mysqli_fetch_assoc($resultTag)) {
-                    displayRow($rowTag);
+    if ($resultData->num_rows != 0) {
+        while ($rowData = mysqli_fetch_assoc($resultData)) {
+            displayRow($rowData);
+            $data_id = $rowData['data_id'];
+            $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
+            if ($resultTag = mysqli_query($conn, $sql)) {
+                if ($resultTag->num_rows != 0) {
+                    echo '<div class="w-container"><strong>Keywords: &nbsp</strong>';
+                    while ($rowTag = mysqli_fetch_assoc($resultTag)) {
+                        displayRow($rowTag);
+                    }
+                    echo '</div>';
                 }
-                echo '</div>';
+            } else {
+                dieWithError(4);
             }
-        } else {
-            dieWithError(4);
+            echo '<br>';
         }
-        echo '<br>';
     }
+    else{
+        echo '<div class="w-container">
+                    <h4>There is no audio to browse.</h4>
+                </div>';
+    }
+
 } else {
     dieWithError(4);
 }
