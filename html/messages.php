@@ -50,25 +50,26 @@ WHERE Message.`created_by`=$user or Message.from=$user GROUP BY toUser.username 
             </div>
         </div>';
             $username = $_SESSION['glbl_user']->username;
-
+             $unread = 0;
             while ($row = mysqli_fetch_assoc($result)) {
-                if (in_array($row['toUser'], $soFar)) {
-                    continue;
-                }
-                array_push($soFar, $row['toUser']);
-
                 if ($row['fromUser'] === $username) {
                     $rec = $row['toUser'];
                 } else {
                     $rec = $row['fromUser'];
                 }
 
-                    if ($row['read_ind'] == 0 && $row['toUser'] === $username) {
+                    if (($row['read_ind'] == 0 && $row['toUser'] === $username) || $unread == 1) {
                     $color = "#ff5c00";
+                    $unread = 1;
                 } else {
                     $color = "white";
                 }
-                
+                if (in_array($rec, $soFar)) {
+                    continue;
+                }
+                array_push($soFar, $rec);
+
+
                 echo '<a href="http://webapp.cs.clemson.edu/~tmcvick/html/view_message_thread.php?to_id=' . $row['created_by'] .'&from_id='. $row['from'] .'">
                 <div class="w-row" style="background-color: ' . $color . '">
             <div class="w-col w-col-3">
