@@ -28,10 +28,14 @@ if ($resultData = mysqli_query($conn, $sql))
     }
     $description = $rowData['description'];
     echo '<div class="w-container">
-    <h1>' . $title. '</h1>
-    <h2>Uploaded by ' . $username . '</h2>
-    <br>
-    <h3>' . $description . '</h3>
+        <div class="w-row">
+                <div class="column-9 w-col w-col-6">
+                    <h1>' . $title. '</h1>
+                </div>
+                <div class="column-10 w-col w-col-6">
+                    <h3>Uploaded by ' . $username . '</h3>
+                </div>
+    <h4>' . $description . '</h4>
     </div>';
 }
 
