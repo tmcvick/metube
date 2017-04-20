@@ -29,23 +29,30 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $sql = "SELECT user.username, data.* FROM user_favorite INNER JOIN user on user_favorite.user_id = user.user_id  INNER JOIN data on user_favorite.data_id=data.data_id WHERE user_favorite.user_id='$user' ORDER BY data.data_id DESC;";
     if ($resultData = mysqli_query($conn, $sql)) {
         //echo json_encode($resultData);
-        while ($rowData = mysqli_fetch_assoc($resultData)) {
-            displayRow($rowData);
-            $data_id = $rowData['data_id'];
-            $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
-            if ($resultTag = mysqli_query($conn, $sql)) {
-                if($resultTag->num_rows != 0) {
-                    echo '<div class="w-container"><strong>Keywords: &nbsp</strong>';
-                    while ($rowTag = mysqli_fetch_assoc($resultTag)) {
-                        displayRow($rowTag);
+        if($resultData->num_rows != 0) {
+            while ($rowData = mysqli_fetch_assoc($resultData)) {
+                displayRow($rowData);
+                $data_id = $rowData['data_id'];
+                $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
+                if ($resultTag = mysqli_query($conn, $sql)) {
+                    if ($resultTag->num_rows != 0) {
+                        echo '<div class="w-container"><strong>Keywords: &nbsp</strong>';
+                        while ($rowTag = mysqli_fetch_assoc($resultTag)) {
+                            displayRow($rowTag);
+                        }
+                        echo '</div>';
                     }
-                    echo '</div>';
+                } else {
+                    echo "Error with getting tags <br>";
+                    echo $conn->error;
                 }
-            } else {
-                echo "Error with getting tags <br>";
-                echo $conn->error;
+                echo '<br>';
             }
-            echo '<br>';
+        }
+        else {
+            echo '<div class="w-container">
+                    <h4>You have no favorites.</h4>
+                </div>';
         }
     }  else {
         echo "Error with getting data <br>";
