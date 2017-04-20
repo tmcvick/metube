@@ -54,7 +54,7 @@ This video failed to play
     if($rowData['type'] == "audio") {
         echo '<div style="margin-top: 20px; margin-bottom: 20px" align="center">
                           <audio controls>
-<source type="video/mpeg" src="/~tmcvick/uploads/' . $rowData['filename'] . '">
+<source type="audio/mpeg" src="/~tmcvick/uploads/' . $rowData['filename'] . '">
 This audio failed to play
 </audio>
 </div>';
