@@ -25,6 +25,7 @@ include "header.php";
             include "../php/display_message_thread.php";
             list($rec, $subj) = displayMessageThread($to_id, $from_id, $conn);
         ?>
+        <a id="bottom"></a>
         <input type="hidden" value="<?= $rec ?>" name="to" id="to">
         <input type="hidden" value="<?= $subj ?>" name="subj" id="subj">
         <textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="msg" maxlength="5000" name="msg" placeholder="Write your reply..."></textarea>

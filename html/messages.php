@@ -68,7 +68,7 @@ WHERE Message.`created_by`=$user or Message.from=$user ORDER BY Message.read_ind
                 array_push($soFar, $rec);
                 echo json_encode($row);
 
-                echo '<a href="http://webapp.cs.clemson.edu/~tmcvick/html/view_message_thread.php?to_id=' . $row['created_by'] .'&from_id='. $row['from'] .'">
+                echo '<a href="http://webapp.cs.clemson.edu/~tmcvick/html/view_message_thread.php#bottom?to_id=' . $row['created_by'] .'&from_id='. $row['from'] .'">
                 <div class="w-row" style="background-color: ' . $color . '">
             <div class="w-col w-col-3">
                 <div>' . $rec . '
