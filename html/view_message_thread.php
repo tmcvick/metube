@@ -18,13 +18,24 @@ include "header.php";
 <div class="div-block-25"></div>>
 <div class="div-block-27"></div>
 <div class="form-wrapper-4 w-form">
-    <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3">
+    <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_message.php" method="post">
         <?php
             $thread_id = $_REQUEST['thread_id'];
             include "../php/display_message_thread.php";
-            displayMessageThread($thread_id, $conn);
+            list($rec, $subj) = displayMessageThread($thread_id, $conn);
+            $user_id = $_SESSION['glbl_user']->user_id;
+            $to = $user_id;
+            $sql = "SELECT user_id from user where username='$rec' LIMIT 1";
+            if ($rec > 0 && $resultData = mysqli_query($conn, $sql)) {
+                while ($rowData = mysqli_fetch_assoc($resultData)) {
+                    $to = $rowData['user_id'];
+                }
+            }
+
         ?>
-        <textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="replyTxt-3" maxlength="5000" name="replyTxt-3" placeholder="Write your reply..."></textarea>
+        <input type="hidden" value="<?= $to ?>" name="to" id="to">
+        <input type="hidden" value="<?= $subj ?>" name="subj" id="subj">
+        <textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="msg" maxlength="5000" name="msg" placeholder="Write your reply..."></textarea>
         <input class="submit-button-5 w-button" data-wait="Please wait..." id="replyBtn" type="submit" value="Reply">
     </form>
 </div>
