@@ -46,6 +46,8 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     }
 
     if (move_uploaded_file($_FILES["flname"]["tmp_name"], $target_file)) {
+        chmod($target_file, 0644);
+
         /* Insert data */
         $sql = "INSERT INTO data (type,filename,description,title,user_id) VALUES ('$dtype', '$filename', '$desc','$title','$u_id')";
 
