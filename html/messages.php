@@ -50,7 +50,6 @@ WHERE Message.`created_by`=$user or Message.from=$user ORDER BY Message.read_ind
             </div>
         </div>';
             $username = $_SESSION['glbl_user']->username;
-             $unread = 0;
             while ($row = mysqli_fetch_assoc($result)) {
                 if ($row['fromUser'] === $username) {
                     $rec = $row['toUser'];
@@ -58,9 +57,8 @@ WHERE Message.`created_by`=$user or Message.from=$user ORDER BY Message.read_ind
                     $rec = $row['fromUser'];
                 }
 
-                    if (($row['read_ind'] == 0 && $row['toUser'] === $username) || $unread == 1) {
+                    if (($row['read_ind'] == 0 && $row['toUser'] === $username)) {
                     $color = "#ff5c00";
-                    $unread = 1;
                 } else {
                     $color = "white";
                 }
