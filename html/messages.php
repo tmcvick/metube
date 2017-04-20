@@ -48,8 +48,16 @@ include "header.php";
                 </div>
             </div>
         </div>';
+            $username = $_SESSION['glbl_user']->username;
+
             while ($row = mysqli_fetch_assoc($result)) {
-                if ($row['read_ind'] == 0) {
+                if ($row['fromUser'] === $username) {
+                    $rec = $row['toUser'];
+                } else {
+                    $rec = $row['fromUser'];
+                }
+
+                    if ($row['read_ind'] == 0) {
                     $color = "#ff5c00";
                 } else {
                     $color = "white";
@@ -58,7 +66,7 @@ include "header.php";
                 echo '<a href="http://webapp.cs.clemson.edu/~tmcvick/html/view_message_thread.php?thread_id=' . $row['conversation_id'] .'">
                 <div class="w-row" style="background-color: ' . $color . '">
             <div class="w-col w-col-3">
-                <div>' . $row['fromUser'] . '
+                <div>' . $rec . '
                 </div>
             </div>
             <div class="w-col w-col-6">
