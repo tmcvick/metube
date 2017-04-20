@@ -23,9 +23,15 @@ if (isset($_REQUEST['user_id'])) {
     $user = $_REQUEST['user_id'];
 
     $sql = "SELECT * FROM data WHERE user_id = '$user' AND type='video'";
+
+    echo '<div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
+        <h1>My Videos</h1>
+    </div>';
 } else {
     $sql = "SELECT * FROM data WHERE type='video'";
-
+    echo '<div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
+        <h1>Videos</h1>
+    </div>';
 }
 
 if ($resultData = mysqli_query($conn, $sql)) {
@@ -36,7 +42,7 @@ if ($resultData = mysqli_query($conn, $sql)) {
         $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
         if ($resultTag = mysqli_query($conn, $sql)) {
            if($resultTag->num_rows != 0) {
-                echo '<div class="w-container" style="padding:10px" align="center"><strong>Keywords: &nbsp</strong>';
+                echo '<div class="w-container" style="padding:10px"><strong>Keywords: &nbsp</strong>';
                 while ($rowTag = mysqli_fetch_assoc($resultTag)) {
                     displayRow($rowTag);
                 }
