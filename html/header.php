@@ -84,3 +84,4 @@ if (!isset($GLOBALS["guest"]) && !isset($_SESSION['guest'])) {
         </nav>
     </div>
 </div>
+</body>
