@@ -15,6 +15,10 @@ include_once "include.php";
 
     if ($result = mysqli_query($conn, $sql)) {
         $fav_id = mysqli_insert_id($conn);
+        echo '<script type="text/javascript">
+            alert("Data added to playlist");
+            window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/browse_favorites.php";
+        </script>';
     } else {
         echo $conn->error;
 }
