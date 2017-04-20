@@ -44,7 +44,7 @@ $data_id = $_REQUEST['data_id'];
                             }
                         ?>
                     </select>
-                    <div class="div-block-29" align="center">
+                    <div class="div-block-29" align="center" style="margin-right: 20px">
                         <input class="submit-button-8 w-button" id="addBtn" type="submit" value="Add to Playlist"/>
                         <a class="button-13 w-button" href="my_channel.php" id="cancelBtn">Cancel</a>
                     </div>
@@ -52,9 +52,6 @@ $data_id = $_REQUEST['data_id'];
             </div>
         </div>
         <div class="div-block-29"></div>
-        <div class="container-10 w-container">
-            <a class="button-13 w-button" href="my_channel.php" id="cancelBtn">Cancel</a>
-        </div>
     </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
