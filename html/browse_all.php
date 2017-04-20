@@ -13,6 +13,8 @@
 </head>
 
 <?php
+if (isset($_REQUEST['guest']))
+    $GLOBALS["guest"] = 1;
 include "header.php";
 ?>
 <div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
@@ -21,7 +23,6 @@ include "header.php";
 
 <?php
 
-    $user = $_SESSION['glbl_user']->user_id;
     $sql = "SELECT * FROM data ORDER BY data_id DESC";
     if ($resultData = mysqli_query($conn, $sql)) {
         //echo json_encode($resultData);

@@ -29,6 +29,7 @@ include_once "php/include.php";
             $gt_ID = "SELECT * FROM user WHERE security_id = '$sec_id->security_id' ";//set session user
             $id_result = mysqli_query($conn, $gt_ID);
             $_SESSION["glbl_user"] = mysqli_fetch_object($id_result);
+            unset($GLOBALS["guest"]);
             header("Location: ./html/browse_all.php"); /* Redirect browser */
             exit();
         } else {
