@@ -39,6 +39,10 @@
             <a class="w-dropdown-link" href="my_channel.php"><strong>All Media</strong></a>
             <?php
             include_once "../php/include.php";
+            if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
+               dieWithError(3);
+            }
+
             echo '<a class="w-dropdown-link" href="browse_videos.php?user_id=' . $_SESSION["glbl_user"]->user_id . '"><strong>Videos</strong></a>';
 
             echo '<a class="w-dropdown-link" href="browse_pictures.php?user_id=' . $_SESSION["glbl_user"]->user_id . '"><strong>Pictures</strong></a>';
