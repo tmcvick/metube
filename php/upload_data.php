@@ -19,8 +19,11 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     $taglist = $_REQUEST['taglist'];
     $u_id = $_SESSION['glbl_user']->user_id;
 
-    $dirname = "~tmcvick/uploads/";
-    $target_file = $dirname . basename($_FILES["flname"]["name"]);
+    $dirname = "/home/tmcvick/public_html/uploads/";
+    chmod( $dirname,0755);
+    
+    $filename = basename($_FILES["flname"]["name"]);
+    $target_file = $dirname . $filename;
     echo '<script>
     alert("' . json_encode($_FILES).'");
         window.location.href="../html/upload.php";
@@ -44,7 +47,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     if (move_uploaded_file($_FILES["flname"]["tmp_name"], $target_file)) {
         /* Insert data */
-        $sql = "INSERT INTO data (type,filename,description,title,user_id) VALUES ('$dtype', '$target_file', '$desc','$title','$u_id')";
+        $sql = "INSERT INTO data (type,filename,description,title,user_id) VALUES ('$dtype', '$filename', '$desc','$title','$u_id')";
 
         if ($result = mysqli_query($conn, $sql)) {
             $lastdtID = mysqli_insert_id($conn);
