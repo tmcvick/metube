@@ -80,9 +80,9 @@ This audio failed to play
     <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_comment.php" method="post">
         <?php
             include "../php/display_comments.php";
-            displayComments($conn);
+            $content = displayComments($conn);
         ?>
-
+        <input type="hidden" value="<?= $content ?>" name="comment" id="comment">
 <textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="msg" maxlength="5000" name="comment" placeholder="Add a comment..."></textarea>
 <input class="submit-button-5 w-button" data-wait="Please wait..." id="commentBtn" type="submit" value="Add Comment">
 </form>

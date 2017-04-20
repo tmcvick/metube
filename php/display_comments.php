@@ -26,12 +26,18 @@ function displayComments($conn)
             while ($rowData = mysqli_fetch_assoc($resultData)) {
                 $content = $rowData['content'];
                 $from_id = $rowData['user_id'];
+                $sql = "SELECT username from user where user_id = '$from_id';";
+                if ($resultid = mysqli_query($conn, $sql)) {
+                    $from = mysqli_fetch_object($resultid)->username;
+                } else {
+                    dieWithError(13);
+                }
 
                 //display body
                 echo '<label for="replyTxt-1" style="font-weight: normal;
                 font-size: 12px;
                 margin-bottom: 0;
-                margin-left: -450px;">' . $from_id . '</label>
+                margin-left: -450px;">' . $from . '</label>
 
                 <textarea class="message-box textarea-2 w-input" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="background-color: cornflowerblue;">' . $content . '</textarea>';
             }
@@ -40,5 +46,6 @@ function displayComments($conn)
 
         }
     }
+    return $content;
 }
 ?>
