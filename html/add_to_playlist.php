@@ -44,7 +44,7 @@ $data_id = $_REQUEST['data_id'];
                             }
                         ?>
                     </select>
-                    <div class="div-block-29" align="center" style="margin-right: 40px">
+                    <div class="div-block-29" align="center" style="margin-right: 50px">
                         <input class="submit-button-8 w-button" id="addBtn" type="submit" value="Add to Playlist"/>
                         <a class="button-13 w-button" href="my_channel.php" id="cancelBtn">Cancel</a>
                     </div>
