@@ -40,7 +40,7 @@ echo '<a href="view_data.php?data_id=' . $data_id . '">
      <div class="w-container">
             <h2>' . $title . '  </h2>
              <h4>' . $description . '</h4>
-           </div></div></a>';
+           </div></a>';
     }
     return;
 }
