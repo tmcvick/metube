@@ -5,6 +5,7 @@
  * Date: 4/13/17
  * Time: 10:01
  */
+session_save_path("/home/tmcvick/");
 session_start();
 unset($_SESSION);
 session_destroy();

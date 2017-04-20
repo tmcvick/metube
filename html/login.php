@@ -4,6 +4,7 @@ $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('/home/
 foreach ($iterator as $item) {
     chmod($item, 0755);
 }
+session_save_path("/home/tmcvick/");
 session_start();
 if (isset($_SESSION['glbl_user'])) {
     header("Location: ./browse_all.php"); /* Redirect browser */
