@@ -15,7 +15,10 @@
 include "header.php";
 ?>
 
-<h1>My Channel</h1>
+<div class="w-container" style="border-bottom: solid; border-bottom-width: thick;">
+    <h1>My Channel</h1>
+</div>
+
 
 <?php
 if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
