@@ -35,10 +35,12 @@ function displayRow($sql)
         $description = $sql['description'];
         echo '<br>';
         /*echo json_encode($sql);*/
-       echo '<div class="w-container">
-            <div class="w-col w-col-6"><a class="link-2" href="view_data.php?data_id=' . $data_id . '"id="title" style="font-size: 30px">' . $title . '  </a>
+
+echo '<a href="view_data.php?data_id=' . $data_id . '">
+     <div class="w-container">
+            <h2>' . $title . '  </h2>
              <h4>' . $description . '</h4>
-           </div></div>';
+           </div></div></a>';
     }
     return;
 }
