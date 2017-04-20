@@ -56,7 +56,7 @@ if ($resultData = mysqli_query($conn, $sql))
 </object> ';
     }
     if($rowData['type'] == "picture") {
-        echo '<img src="/~tmcvick/uploads/' . $rowData['filename'] . '"/>';
+        echo '<img width="50%" height="50%" src="/~tmcvick/uploads/' . $rowData['filename'] . '"/>';
     }
 }
 
