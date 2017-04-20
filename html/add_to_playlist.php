@@ -49,7 +49,7 @@ $data_id = 0;
                         ?>
                     </select>
                     <?php
-                    echo '<input class="submit-button-8 w-button" href="../php/add_playlist.php?data_id=' . $data_id . '" id="addBtn" type="submit" value="Add to Playlist"></a>'
+                    echo '<button class="submit-button-8 w-button" href="../php/add_playlist.php?data_id=' . $data_id . '" id="addBtn" type="submit" value="Add to Playlist"></button>'
                     ?>
                 </div>
             </div>
@@ -62,7 +62,7 @@ $data_id = 0;
                     //is submitted
                     $title = $_POST['field'];
                     echo '$title';
-                    
+
                 }
 
             ?>
