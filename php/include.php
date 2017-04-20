@@ -36,7 +36,7 @@ function displayRow($sql)
         echo '<br>';
         /*echo json_encode($sql);*/
 
-echo '<a href="view_data.php?data_id=' . $data_id . '" style = "display:none">
+echo '<a href="view_data.php?data_id=' . $data_id . '">
      <div class="w-container">
             ' . $title . '  <br>' . $description . '
            </div></a>';
