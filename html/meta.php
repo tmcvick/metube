@@ -4,5 +4,5 @@
 <link href="../css/webflow.css?version=2" rel="stylesheet" type="text/css">
 <link href="../css/metube-80047b.webflow.css?version=2" rel="stylesheet" type="text/css">
 <script src="../js/modernizr.js" type="text/javascript"></script>
-<!--<link href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
-<link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">-->
+<link href="../images/paw.png?version=2" rel="shortcut icon" type="image/x-icon">
+<link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
