@@ -42,6 +42,7 @@ function displayRow($sql)
              <input class="text-field-6 w-input" data-name="title" id="title" maxlength="256" name="pword"
                    value="' . $description . '" type="text">
             <input type="hidden" value="' . $data_id . '" name="id" id="id">
+           </div>
            </div>';
     }
     return;
