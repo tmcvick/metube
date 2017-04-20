@@ -8,7 +8,8 @@
 
 include_once "include.php";
 
-function displayComments($conn){
+function displayComments($conn)
+{
     if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         echo '<script language="javascript">';
         echo 'alert("User not logged in!")';
@@ -23,32 +24,21 @@ function displayComments($conn){
 
         if ($resultData = mysqli_query($conn, $sql)) {
             while ($rowData = mysqli_fetch_assoc($resultData)) {
-                echo json_encode($rowData);
-                echo '<br>';
-            }
-        } else {
-            echo "Error with getting comments <br>";
-            echo $conn->error;
-        }
-    }
+                $content = $rowData['content'];
+                $from_id = $rowData['user_id'];
 
-    if ($resultData = mysqli_query($conn, $sql)) {
-        while ($rowData = mysqli_fetch_assoc($resultData)) {
-            $content = $rowData['content'];
-            $from_id = $rowData['user_id'];
-
-            //display body
-            echo '<label for="replyTxt-1" style="font-weight: normal;
+                //display body
+                echo '<label for="replyTxt-1" style="font-weight: normal;
                 font-size: 12px;
                 margin-bottom: 0;
                 margin-left: -450px;">' . $from_id . '</label>
 
                 <textarea class="message-box textarea-2 w-input" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="background-color: cornflowerblue;">' . $content . '</textarea>';
-        }
-    } else {
-        dieWithError(8);
+            }
+        } else {
+            dieWithError(8);
 
+        }
     }
- //   return array($from);
 }
 ?>
