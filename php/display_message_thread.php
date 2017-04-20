@@ -48,7 +48,7 @@ ORDER BY Message.timestamp DESC";
                 //display body
                 echo '<label for="replyTxt-1" class="message-label">' . $from . '</label>
 
-        <textarea class="textarea-2 w-input message-box" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="background-color: ' . $color . '">' . $message . '</textarea>
+        <textarea class="message-box textarea-2 w-input" data-name="Reply Txt 3" id="replyTxt-1" maxlength="5000" name="replyTxt-1" readonly style="background-color: ' . $color . '">' . $message . '</textarea>
             <label for="replyTxt-1" class="message-date">' . date('m/d/y', strtotime($rowData['timestamp'])) . '</label>';
 
 
