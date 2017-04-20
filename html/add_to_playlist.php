@@ -44,9 +44,9 @@ $data_id = $_REQUEST['data_id'];
                             }
                         ?>
                     </select>
-                    
-                    <input class="submit-button-8 w-button" id="addBtn" type="submit" value="Add to Playlist"/>
-
+                    <div class="div-block-29" align="center">
+                        <input class="submit-button-8 w-button" id="addBtn" type="submit" value="Add to Playlist"/>
+                    </div>
                 </div>
             </div>
         </div>
