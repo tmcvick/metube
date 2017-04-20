@@ -76,14 +76,17 @@ This audio failed to play
         </div>
     </div>
 </div>
-<div class="div-block-32"></div>
-<div class="form-wrapper-3 w-form">
-    <form class="form-8" data-name="Comment" id="wf-form-Comment" name="wf-form-Comment">
-        <textarea class="textarea-4 w-input" data-name="commentTxt" id="commentTxt" maxlength="5000" name="commentTxt"
-                  placeholder="Add comment..."></textarea>
-        <input class="submit-button-6 w-button" data-wait="Please wait..." id="commentBtn" type="submit"
-               value="Comment">
-    </form>
+<div class="form-wrapper-4 w-form">
+    <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_comment.php" method="post">
+        <?php
+            include "../php/display_comments.php";
+            $content = displayComments($conn);
+        ?>
+        <input type="hidden" value="<?= $content ?>" name="comment" id="comment">
+        <input type="hidden" value="<?= $data_id ?>" name="data_id" id="data_id">
+        <textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="msg" maxlength="5000" name="comment" placeholder="Add a comment..."></textarea>
+<input class="submit-button-5 w-button" data-wait="Please wait..." id="commentBtn" type="submit" value="Add Comment">
+</form>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
