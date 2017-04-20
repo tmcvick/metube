@@ -79,13 +79,16 @@ This audio failed to play
     </div>
 </div>
 <?php
- include "../php/display_comments.php";
+if(!isset($_SESSION['guest'])) {
+    include "../php/display_comments.php";
 
-echo '<div class="form-wrapper-4 w-form">
+    echo '<div class="form-wrapper-4 w-form">
     <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_comment.php" method="post">
         <h3 align="center" style="color:#ff5c00">Comments</h3>
             
-           '; $content = displayComments($conn); echo '
+           ';
+    $content = displayComments($conn);
+    echo '
         
         <input type="hidden" value="' . $content . '" name="comment" id="comment">
         <input type="hidden" value="' . $data_id . '" name="data_id" id="data_id">
@@ -93,6 +96,7 @@ echo '<div class="form-wrapper-4 w-form">
 <input class="submit-button-5 w-button" data-wait="Please wait..." id="commentBtn" type="submit" value="Add Comment">
 </form>
 </div>';
+}
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
