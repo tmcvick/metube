@@ -21,7 +21,7 @@ function displayMessageThread($to_id, $from_id ,$conn)
 
         $sql = "SELECT Message.*, toUser.username as toUser, fromUser.username as fromUser, toUser.user_id as toUserId FROM Message
   INNER JOIN user toUser on Message.created_by=toUser.user_id INNER JOIN user fromUser on Message.from=fromUser.user_id WHERE (Message.created_by=$to_id AND Message.from = $from_id) OR (Message.created_by=$from_id AND Message.from=$to_id)
-ORDER BY Message.timestamp DESC";
+ORDER BY Message.timestamp";
 
 
         $flag = 0;
