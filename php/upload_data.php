@@ -98,7 +98,7 @@ window.location.href="../html/my_channel.php";
         }
     } else {
         echo '<script>
-        alert("Error uploading file, exiting upload");
+        alert("' . json_encode($_FILES).'");
         window.location.href="../html/my_channel.php";
         </script>';
     }
