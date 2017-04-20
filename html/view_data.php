@@ -32,7 +32,7 @@ if ($resultData = mysqli_query($conn, $sql))
                 <div class="column-9 w-col w-col-6">
                     <h1>' . $title. '</h1>
                 </div>
-                <div class="column-10 w-col w-col-6">
+                <div class="column-10 w-col w-col-6" style="padding:10px">
                     <h3>Uploaded by ' . $username . '</h3>
                 </div>
                 </div>
