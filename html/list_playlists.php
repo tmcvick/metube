@@ -66,7 +66,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                     $sql = "SELECT data_id, keyword FROM tag INNER JOIN data_tag on data_tag.data_id ='$data_id' and data_tag.tag_id=tag.tag_id;";
                     if ($resultTag = mysqli_query($conn, $sql)) {
                         if($resultTag->num_rows != 0) {
-                            echo '<div class="w-container" style="padding-left: 40px"><strong>Keywords: &nbsp</strong>';
+                            echo '<div class="w-container" style="padding-left: 60px"><strong>Keywords: &nbsp</strong>';
                             while ($rowTag = mysqli_fetch_assoc($resultTag)) {
                                 displayPlaylistRow($rowTag);
                             }
