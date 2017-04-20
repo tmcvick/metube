@@ -19,8 +19,24 @@ if ($resultData = mysqli_query($conn, $sql))
 {
     $rowData = mysqli_fetch_assoc($resultData);
     $title = $rowData['title'];
+    $user_id = $rowData['user_id'];
+    $user_sql = "SELECT * FROM user WHERE user_id = '$user_id'";
+    if ($user_resultData = mysqli_query($conn, $user_sql))
+    {
+        $user_rowData = mysqli_fetch_assoc($user_resultData);
+        $username = $user_rowData['username'];
+    }
+    $description = $rowData['description'];
     echo '<div class="w-container">
-    <h1>' . $title. '</h1>
+        <div class="w-row">
+                <div class="column-9 w-col w-col-6">
+                    <h1>' . $title. '</h1>
+                </div>
+                <div class="column-10 w-col w-col-6" style="padding:15px" align="right">
+                    <h3>Uploaded by ' . $username . '</h3>
+                </div>
+                </div>
+    <h4>' . $description . '</h4>
     </div>';
 }
 
