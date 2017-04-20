@@ -36,7 +36,10 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
             }
         }
         else {
-            echo "<strong>Your search returned no results.</strong>";
+            echo '<div class="w-container">
+                    <h4>Your search returned no results.</h4>
+                </div>';
+    }";
         }
     } else {
         echo "Error with getting data <br>";
