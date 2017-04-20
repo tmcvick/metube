@@ -21,7 +21,7 @@ include "header.php";
 
 <?php
     $user = $_SESSION['glbl_user']->user_id;
-    $sql = "SELECT user.username, data.* FROM user_favorite INNER JOIN user on user_favorite.user_id = user.user_id  INNER JOIN data on user_favorite.data_id=data.data_id WHERE user_favorite.user_id='$user' ORDER BY data.data_id DESC;";
+    $sql = "SELECT DISTINCT user.username, data.* FROM user_favorite INNER JOIN user on user_favorite.user_id = user.user_id  INNER JOIN data on user_favorite.data_id=data.data_id WHERE user_favorite.user_id='$user' ORDER BY data.data_id DESC;";
     if ($resultData = mysqli_query($conn, $sql)) {
         //echo json_encode($resultData);
         if($resultData->num_rows != 0) {
