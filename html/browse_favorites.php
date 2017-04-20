@@ -20,11 +20,6 @@ include "header.php";
 </div>
 
 <?php
-if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-    echo '<script language="javascript">';
-    echo 'alert("User not logged in!")';
-    echo '</script>';
-} else {
     $user = $_SESSION['glbl_user']->user_id;
     $sql = "SELECT user.username, data.* FROM user_favorite INNER JOIN user on user_favorite.user_id = user.user_id  INNER JOIN data on user_favorite.data_id=data.data_id WHERE user_favorite.user_id='$user' ORDER BY data.data_id DESC;";
     if ($resultData = mysqli_query($conn, $sql)) {
@@ -43,8 +38,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                         echo '</div>';
                     }
                 } else {
-                    echo "Error with getting tags <br>";
-                    echo $conn->error;
+                    dieWithError(4);
                 }
                 echo '<br>';
             }
@@ -55,10 +49,8 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
                 </div>';
         }
     }  else {
-        echo "Error with getting data <br>";
-        echo $conn->error;
+        dieWithError(4);
     }
-}
 
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>

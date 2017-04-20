@@ -4,9 +4,6 @@
 
 include_once "php/include.php";
 
-if(!isset($_REQUEST["user"]) || !isset($_REQUEST['pass'])) {
-    echo "Please input a username and password!";
-} else {
     $user = $_REQUEST["user"];
     $pswrd = $_REQUEST["pass"];
     $usrerr = "Invalid username";
@@ -20,7 +17,7 @@ if(!isset($_REQUEST["user"]) || !isset($_REQUEST['pass'])) {
 
 //todo catch any errors here
     if (empty($sec_id)) {
-        echo $usrerr; // should empty text field and return
+        dieWithError(1);
     } else {
         //echo $sec_id->security_id;
 
@@ -35,8 +32,7 @@ if(!isset($_REQUEST["user"]) || !isset($_REQUEST['pass'])) {
             header("Location: ./html/browse_all.php"); /* Redirect browser */
             exit();
         } else {
-            echo 'Login failed';
+            dieWithError(1);
         }
-    }
 }
 ?>

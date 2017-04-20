@@ -7,12 +7,6 @@
  */
 include_once "include.php";
 
-if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-    echo '<script language="javascript">';
-    echo 'alert("User not logged in!")';
-    echo '</script>';
-} else {
-
     $fname = $_REQUEST['fname'];
     $lname = $_REQUEST['lname'];
     $uname = $_REQUEST['uname'];
@@ -30,7 +24,6 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         header("Location: ../html/view_profile.php");
         exit();
     } else {
-        echo $conn->error;
+dieWithError(9);
     }
-}
 ?>

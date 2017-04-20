@@ -29,11 +29,6 @@ $data_id = $_REQUEST['data_id'];
                     <select class="select-field w-select" id="field" name="field">
                         <option value="">Select a playlist...</option>
                         <?php
-                        if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-                            echo '<script language="javascript">';
-                            echo 'alert("User not logged in!")';
-                            echo '</script>';
-                        } else {
                             $user = $_SESSION['glbl_user']->user_id;
                             $sql = "SELECT * FROM playlist WHERE created_by='$user';";
                             if ($resultPlaylist = mysqli_query($conn, $sql)) {
@@ -45,7 +40,6 @@ $data_id = $_REQUEST['data_id'];
                             else{
                                 dieWithError(6);
                             }
-                        }
                         ?>
                     </select>
                     <?php

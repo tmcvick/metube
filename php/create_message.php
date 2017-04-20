@@ -7,13 +7,6 @@
  */
 include_once "include.php";
 
-if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-    echo '<script language="javascript">';
-    echo 'alert("User not logged in!")';
-    echo '</script>';
-    header("Location: ../login.php"); /* Redirect browser */
-    exit();
-} else {
 
     $from = $_SESSION['glbl_user']->user_id;
     $to = $_REQUEST['to'];
@@ -27,7 +20,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     if ($resultid = mysqli_query($conn, $sql)) {
         $user_id = mysqli_fetch_object($resultid)->user_id;
     } else {
-        echo $conn->error;
+        dieWithError(13);
     }
 
     $sql = "INSERT INTO Message (subject, message, read_ind, timestamp, created_by, Message.from) VALUES ('$subj', '$msg', '$read', '$created', '$user_id', '$from')";
@@ -35,13 +28,11 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
     if ($result = mysqli_query($conn, $sql)) {
         $message_id = mysqli_insert_id($conn);
         echo '<script>
-alert("Message sent!");
-window.location.href="../html/messages.php";
-</script>';
+            alert("Message sent!");
+            window.location.href="../html/messages.php";
+            </script>';
     } else {
-        echo $conn->error;
-        echo $conn->errno;
-        echo $conn->dump_debug_info();
-    }
+        dieWithError(5);
+
 }
 ?>

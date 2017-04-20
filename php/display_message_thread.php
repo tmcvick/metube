@@ -11,11 +11,6 @@ function displayMessageThread($to_id, $from_id ,$conn)
     $rec = 0;
     $subj = '';
 
-    if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
-        echo '<script language="javascript">';
-        echo 'alert("User not logged in!")';
-        echo '</script>';
-    } else {
         $user_id = $_SESSION['glbl_user']->user_id;
         $username = $_SESSION['glbl_user']->username;
 
@@ -67,15 +62,14 @@ ORDER BY Message.timestamp";
                     $sql = "UPDATE Message SET read_ind='1' WHERE message_id = '$id'";
                     if ($result = mysqli_query($conn, $sql)) {
                     } else {
-                        echo "Error with setting message to read <br>";
-                        echo $conn->error;
+                        dieWithError(8);
+
                     }
                 }
             }
         } else {
-            echo "Error with getting message thread <br>";
-            echo $conn->error;
+            dieWithError(8);
+
         }
-    }
     return array($rec, $subj);
 }

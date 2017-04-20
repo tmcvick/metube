@@ -86,7 +86,7 @@ WHERE Message.`created_by`=$user or Message.from=$user ORDER BY Message.read_ind
             }
         }
     } else {
-        echo $conn->error;
+        dieWithError(8);
     }
     ?>
     </div>

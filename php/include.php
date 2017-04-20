@@ -157,7 +157,34 @@ function dieWithError($errorNo) {
                 window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/upload.php";
             </script>
             <?php
-        
+        case 13:
+            ?>
+            <script type="text/javascript">
+                alert("Error while sending message: User does not exist");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/messages.php";
+            </script>
+            <?php
+        case 14:
+            ?>
+            <script type="text/javascript">
+                alert("Error while adding file to favorites");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/browse_favorites.php";
+            </script>
+            <?php
+        case 15:
+            ?>
+            <script type="text/javascript">
+                alert("Error while adding file to playlist");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/list_playlists.php";
+            </script>
+            <?php
+        case 16:
+            ?>
+            <script type="text/javascript">
+                alert("Error while creating comment. Exiting to homepage");
+                window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/my_channel.php";
+            </script>
+            <?php
     }
 }
 

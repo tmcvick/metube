@@ -23,9 +23,13 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     if ($result = mysqli_query($conn, $sql)) {
         $comment_id = mysqli_insert_id($conn);
-        echo 'Comment created: ' . $comment_id . '<br>';
+        ?>
+        <script type="text/javascript">
+            alert("Comment created!");
+        </script>
+        <?php
     } else {
-        echo $conn->error;
+dieWithError(16);
     }
 }
 ?>

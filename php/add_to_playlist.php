@@ -31,9 +31,14 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
 
     if ($result = mysqli_query($conn, $sql)) {
         $playlist_data_id = mysqli_insert_id($conn);
-        echo 'Data added to playlist: ' . $playlist_data_id . '<br>';
+            ?>
+        <script type="text/javascript">
+            alert("Data added to playlist");
+            window.location.href = "http://webapp.cs.clemson.edu/~tmcvick/html/list_playlists.php";
+        </script>
+    <?php
     } else {
-        echo $conn->error;
+dieWithError(15) ;
     }
 }
 ?>
