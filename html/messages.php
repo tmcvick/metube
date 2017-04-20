@@ -77,7 +77,7 @@ include "header.php";
                 <div>' . date( 'm/d/y', strtotime($row['timestamp'])) .'
                 </div>
             </div>
-            div class="w-col w-col-3">
+            <div class="w-col w-col-3">
                 <div>' . $row['conversation_id'] .'
                 </div>
             </div>
