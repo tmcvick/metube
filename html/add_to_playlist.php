@@ -48,23 +48,24 @@ $data_id = 0;
                         }
                         ?>
                     </select>
-                    <input type="hidden" name="submit"/>
+                    <input class="submit-button-8 w-button"  id="addBtn" type="submit" value="Add to Playlist"/>;
                 </div>
             </div>
         </div>
         <div class="div-block-29"></div>
         <div class="container-10 w-container">
             <?php
+        //    href="../php/add_playlist.php?data_id=' . $data_id . '?pl_id=' . $pl_id .'"
                 if ( isset( $_POST['submit'] ) ) {
                     //is submitted
                     $title = $_POST['field'];
                     echo '$title';
                 }
-          /*      $sql = "SELECT playlist_id FROM playlist WHERE name = '$title'";
+            /*    $sql = "SELECT playlist_id FROM playlist WHERE name = '$title'";
                 if ($result = mysqli_query($conn, $sql)) {
                     $rowData = mysqli_fetch_assoc($result);
                     $pl_id = $rowData['playlist_id'];
-                    echo '<a class="submit-button-8 w-button" href="../php/add_playlist.php?data_id=' . $data_id . '?pl_id=' . $pl_id .'" id="addBtn" type="submit" value="Add to Playlist"></a>';
+                    echo '<input class="submit-button-8 w-button" href="../php/add_playlist.php?data_id=' . $data_id . '?pl_id=' . $pl_id .'" id="addBtn" type="submit" value="Add to Playlist"></a>';
                 }*/
             ?>
             <a class="button-13 w-button" href="channel.html" id="cancelBtn">Cancel</a>
