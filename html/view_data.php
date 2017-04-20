@@ -62,7 +62,7 @@ This video failed to play
         <div class="column-19 w-col w-col-6">
             <?php
                 echo '<form action="../php/add_favorite.php?data_id=' . $data_id . '" method="get">
-                    <button class="button-15 w-button" type=submit id="favoritesBtn">Add to Favorites</button>
+                    <button class="button-15 w-button" type="submit" id="favoritesBtn">Add to Favorites</button>
                 </form>';
             ?>
 
