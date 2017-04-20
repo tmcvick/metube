@@ -25,7 +25,7 @@ function displayRow($sql)
 {
     if (isset($sql['keyword'])) {
         //this is a tag
-        echo '<div class="w-container">' . $sql['keyword'] . ' </div>';
+        echo $sql['keyword'] . ' &nbsp';
     }
     else
     {
@@ -40,7 +40,7 @@ function displayRow($sql)
              <input class="textarea" data-name="title" id="title" maxlength="256" name="pword"
                    value="' . $description . '" type="text" >
            </div>
-           </div><div class="w-container"> <strong>Keywords</strong> </div>';
+           </div><div class="w-container"> <strong>Keywords: </strong> </div>';
     }
     return;
 }
