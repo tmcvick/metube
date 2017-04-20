@@ -43,7 +43,7 @@ $data_id = $_REQUEST['data_id'];
                         ?>
                     </select>
                     <?php
-                    echo '<a class="submit-button-8 w-button" href="../php/add_to_playlist.php?data_id=' . $data_id . '" id="addBtn" type="submit">Add to Playlist</a>'
+                    echo '<a class="submit-button-8 w-button" onClick = "getValue()" href="../php/add_to_playlist.php?data_id=' . $data_id . '" id="addBtn" type="submit">Add to Playlist</a>'
                     ?>
                 </div>
             </div>
@@ -66,8 +66,7 @@ $data_id = $_REQUEST['data_id'];
 </div>
 <script>
     function getValue() {
-        var x = document.getElementById("field").value;
-        document.getElementById("demo").innerHTML = x;
+        return document.getElementById("field").value;
     }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
