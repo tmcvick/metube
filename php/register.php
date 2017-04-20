@@ -14,9 +14,6 @@ $pword = $_REQUEST['pword'];
 $channel = $_REQUEST['channel'];
 $pword2 = $_REQUEST['pword2'];
 
-if ($pword != $pword2) {
-    echo "Error: passwords didn't match!";
-} else {
 
 
     //create secuirty table
@@ -36,6 +33,5 @@ if ($pword != $pword2) {
         }
     } else {
         echo $conn->error;
-    }
 }
 ?>
