@@ -64,32 +64,36 @@ This audio failed to play
 ?>
 <div class="container-11 w-container">
     <div class="w-row">
-        <div class="column-18 w-col w-col-6" style="margin-left: -300px"><a class="button-14 w-button"
+        <div class="column-18 w-col w-col-6"><a class="button-14 w-button"
                                                 href="<?= "/~tmcvick/uploads/" . $rowData['filename'] ?>"
                                                 id="downloadBtn" download>Download</a>
         </div>
         <div class="column-19 w-col w-col-6">
             <?php
+            if(!isset($_SESSION['guest'])) {
                 echo '<a class="button-16 w-button" href="../php/add_favorite.php?data_id=' . $data_id . '" id="favoritesBtn">Add to Favorites</a>';
-                echo '<a class="button-16 w-button" href="add_to_playlist.php?data_id='.$data_id . '" id="playlistBtn">Add to playlist</a>'
+                echo '<a class="button-16 w-button" href="add_to_playlist.php?data_id=' . $data_id . '" id="playlistBtn">Add to playlist</a>' ;
+            }
             ?>
         </div>
     </div>
 </div>
+<?php
+ include "../php/display_comments.php";
 
-<div class="form-wrapper-4 w-form">
+echo '<div class="form-wrapper-4 w-form">
     <form class="form-7" data-name="Email Form 3" id="email-form-3" name="email-form-3" action="../php/create_comment.php" method="post">
         <h3 align="center" style="color:#ff5c00">Comments</h3>
-        <?php
-            include "../php/display_comments.php";
-            $content = displayComments($conn);
-        ?>
-        <input type="hidden" value="<?= $content ?>" name="comment" id="comment">
-        <input type="hidden" value="<?= $data_id ?>" name="data_id" id="data_id">
+            
+           '; $content = displayComments($conn); echo '
+        
+        <input type="hidden" value="' . $content . '" name="comment" id="comment">
+        <input type="hidden" value="' . $data_id . '" name="data_id" id="data_id">
         <textarea class="textarea-2 w-input" data-name="Reply Txt 3" id="msg" maxlength="5000" name="comment" placeholder="Add a comment..."></textarea>
 <input class="submit-button-5 w-button" data-wait="Please wait..." id="commentBtn" type="submit" value="Add Comment">
 </form>
-</div>
+</div>';
+?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="../js/webflow.js" type="text/javascript"></script>
