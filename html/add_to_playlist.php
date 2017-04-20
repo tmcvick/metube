@@ -48,7 +48,7 @@ $data_id = 0;
                         }
                         ?>
                     </select>
-                    <input type="submit" name="submit"/>
+                    <input type="hidden" name="submit"/>
                 </div>
             </div>
         </div>
