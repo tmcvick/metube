@@ -37,7 +37,7 @@ function displayRow($sql)
        echo '<div class="w-container">
 
             <input class="text-field-6 w-input" data-name="title" id="title" maxlength="256" name="pword"
-                   value="<?php echo $test; ?>" type="text">
+                   value="<?php echo $title; ?>" type="text">
             <input type="hidden" value="<?= $id ?>" name="id" id="id">
            </div>';
     }
