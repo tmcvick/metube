@@ -22,9 +22,9 @@ include "header.php";
 if (isset($_REQUEST['user_id'])) {
     $user = $_REQUEST['user_id'];
 
-    $sql = "SELECT * FROM data WHERE user_id = '$user' AND type='video'";
+    $sql = "SELECT * FROM data WHERE user_id = '$user' AND type='video' ORDER BY data_id DESC";
 } else {
-    $sql = "SELECT * FROM data WHERE type='video'";
+    $sql = "SELECT * FROM data WHERE type='video' ORDER BY data_id DESC";
 
 }
 

@@ -31,7 +31,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         echo "Error with getting data <br>";
         echo $conn->error;
     }
-    $sql = "SELECT * FROM data WHERE user_id = '$user'";
+    $sql = "SELECT * FROM data WHERE user_id = '$user' ORDER BY data_id DESC";
     if ($resultData = mysqli_query($conn, $sql))
         //echo json_encode($resultData);
         while ($rowData = mysqli_fetch_assoc($resultData)) {
