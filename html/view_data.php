@@ -60,7 +60,13 @@ This video failed to play
                                                 id="downloadBtn" download>Download</a>
         </div>
         <div class="column-19 w-col w-col-6">
-            <button class="button-15 w-button" type=submit id="favoritesBtn">Add to Favorites</button>
+            <?php
+                echo '<form action="../php/add_favorite.php?data_id=' . $data_id . '" method="get">
+                    <button class="button-15 w-button" type=submit id="favoritesBtn">Add to Favorites</button>
+                </form>';
+            ?>
+
+
             <a class="button-16 w-button" href="add-to-playlist.html" id="playlistBtn">Add to playlist</a>
         </div>
     </div>
