@@ -30,7 +30,7 @@ if (!isset($_SESSION['glbl_user']) || empty($_SESSION['glbl_user'])) {
         echo $conn->error;
     }
 
-    $sql = "INSERT INTO Message (subject, message, read_ind, timestamp, created_by, Message.from) VALUES ('$subj','$msg', '$read', '$created', '$user_id', '$from')";
+    $sql = "INSERT INTO Message (subject, message, read_ind, timestamp, created_by, Message.from) VALUES ('$subj', '$msg', '$read', '$created', '$user_id', '$from')";
 
     if ($result = mysqli_query($conn, $sql)) {
         $message_id = mysqli_insert_id($conn);
@@ -40,6 +40,8 @@ window.location.href="../html/messages.php";
 </script>';
     } else {
         echo $conn->error;
+        echo $conn->errno;
+        echo $conn->dump_debug_info();
     }
 }
 ?>
